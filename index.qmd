@@ -1,0 +1,10 @@
+---
+title: "ACC Designs"
+---
+
+# Welcome
+
+This is the ACC Designs website.
+
+I use Quarto for technical documentation, research notes,
+and simulation reports.
