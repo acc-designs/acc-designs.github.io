@@ -1,10 +1,14 @@
 ---
-title: "ACC Designs"
+title: "ADC Research"
 ---
 
-# Welcome
+# Pipelined ADCs
 
-This is the ACC Designs website.
+My research focuses on high-speed pipelined ADCs
+and digital background calibration.
 
-I use Quarto for technical documentation, research notes,
-and simulation reports.
+## Recent work
+
+- Histogram-based gain-error estimation
+- Background calibration
+- High-speed ADC architectures
