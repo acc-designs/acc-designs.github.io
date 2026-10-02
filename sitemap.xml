@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://acc-designs.github.io/website/about.html</loc>
-    <lastmod>2026-09-27T19:02:34.980Z</lastmod>
+    <loc>https://acc-designs.github.io/projects/index.html</loc>
+    <lastmod>2026-10-02T19:22:33.485Z</lastmod>
   </url>
   <url>
-    <loc>https://acc-designs.github.io/website/index.html</loc>
-    <lastmod>2026-09-27T19:02:34.980Z</lastmod>
+    <loc>https://acc-designs.github.io/articles/basics.html</loc>
+    <lastmod>2026-10-02T19:22:33.485Z</lastmod>
+  </url>
+  <url>
+    <loc>https://acc-designs.github.io/articles/article1.html</loc>
+    <lastmod>2026-10-02T19:22:33.484Z</lastmod>
+  </url>
+  <url>
+    <loc>https://acc-designs.github.io/index.html</loc>
+    <lastmod>2026-10-02T19:22:33.485Z</lastmod>
+  </url>
+  <url>
+    <loc>https://acc-designs.github.io/discrete/index.html</loc>
+    <lastmod>2026-10-02T19:22:33.485Z</lastmod>
+  </url>
+  <url>
+    <loc>https://acc-designs.github.io/articles/index.html</loc>
+    <lastmod>2026-10-02T19:22:33.485Z</lastmod>
+  </url>
+  <url>
+    <loc>https://acc-designs.github.io/about.html</loc>
+    <lastmod>2026-10-02T19:22:33.484Z</lastmod>
   </url>
 </urlset>

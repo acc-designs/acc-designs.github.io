@@ -1,1 +1,1 @@
-Sitemap: https://acc-designs.github.io/website/sitemap.xml
+Sitemap: https://acc-designs.github.io/sitemap.xml

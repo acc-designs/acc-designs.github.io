@@ -1,0 +1,14 @@
+[
+  {
+    "listing": "/articles/basics.html",
+    "items": [
+      "/articles/article1.html"
+    ]
+  },
+  {
+    "listing": "/articles/index.html",
+    "items": [
+      "/articles/article1.html"
+    ]
+  }
+]
