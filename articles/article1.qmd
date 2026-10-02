@@ -1,0 +1,45 @@
+---
+title: "Introduction to Analog Circuit Design"
+description: "Design Prerequisites, Tools, ..."
+author: "Amin Chegeni"
+date: 2026-09-29
+categories:
+  - Basics
+docindex: 1
+---
+
+To start designing analog circuits, you need to understand the fundamentals of electronic circuits, including nodal and mesh analysis, Kirchhoff’s Current Law (KCL) and Kirchhoff’s Voltage Law (KVL), and, of course, transistors and other nonlinear devices.
+
+Furthermore, you should be able to design and analyze basic circuit blocks using pen and paper. In other words, you should be able to understand and predict the behavior and functionality of basic circuit blocks before simulating them.
+
+After designing a circuit, its functionality is verified through simulation, and modifications are made as necessary to achieve the desired performance. Therefore, we need a circuit simulator. Two popular simulators for analog IC design are Synopsys HSPICE and Cadence Spectre. Unfortunately, both of these tools require a paid license.
+
+Fortunately, there are several free circuit simulators available for analog circuit design. Ngspice and LTspice are two well-known free SPICE circuit simulators. With LTspice, schematic capture and waveform viewing are integrated into the simulator. Ngspice, on the other hand, is primarily a SPICE-based simulator whose input is a circuit netlist and whose output consists of simulation data. Therefore, to work with schematics, you need a schematic capture tool, and to view simulation waveforms, you need a waveform viewer. In this course, we use Ngspice as the circuit simulator.
+
+For schematic capture, there is a free and open-source tool called Xschem. Since Xschem supports hierarchical schematics, it is well suited for designing large and complex circuits. It is also supported by several open-source PDKs. Furthermore, Xschem provides an integrated waveform viewer, while also supporting external waveform viewers.
+
+It is recommended to install **Linux**, as all of the essential tools run smoothly on Linux-based systems. Linux distributions are free, and if you are using Windows, you can easily set up a Linux environment through **WSL (Windows Subsystem for Linux)**. For example, I am using **Ubuntu** on WSL.
+
+Below are the main tools used in a typical analog IC design flow:
+
+-   **Schematic Capture:**\
+    **xschem** — <https://xschem.sourceforge.io/stefan/index.html>
+
+-   **Circuit Simulation:**\
+    **ngspice** — [https://ngspice.sourceforge.io](https://ngspice.sourceforge.io/)
+
+-   **Layout Editor:**\
+    **Magic VLSI** — <http://opencircuitdesign.com/magic/index.html>
+
+-   **Open PDK:**\
+    **SkyWater SKY130** — <http://opencircuitdesign.com/open_pdks/index.html>
+
+### Integrating Xschem with SKY130
+
+There are clear instructions available for setting up **xschem** with the **SKY130 PDK**:
+
+Documentation:\
+[XSCHEM SKY130 INTEGRATION](https://xschem.sourceforge.io/stefan/xschem_man/tutorial_xschem_sky130.html)
+
+A detailed video tutorial is also available, covering xschem, ngspice, and SKY130 PDK usage from scratch:\
+<https://youtu.be/bYbkz8FXnsQ?si=K5OG5g5v23BnFscz>

@@ -1,14 +1,9 @@
 ---
-title: "ADC Research"
+title: "ACC-Designs R&D"
 ---
 
-# Pipelined ADCs
+# Welcome to ACC Designs R&D!
 
-My research focuses on high-speed pipelined ADCs
-and digital background calibration.
+This is my personal website dedicated to my work and activities in **Analog Custom Circuit Design**. It primarily covers **Analog and Mixed-Signal IC Design**, including topics such as data converters, RF circuits and blocks, various types of amplifiers, and more.
 
-## Recent work
-
-- Histogram-based gain-error estimation
-- Background calibration
-- High-speed ADC architectures
+The website also covers selected topics in **discrete circuit design**, including basic analog circuit design, power electronics, and switching-mode power supplies (SMPS).

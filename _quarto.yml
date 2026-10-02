@@ -2,18 +2,37 @@ project:
   type: website
 
 website:
-  title: "website"
+  title: "ACC–R&D"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - text: "Articles"
+        href: articles/index.qmd
+      # - text: "Projects"
+      #   href: projects/index.qmd
+      # - text: "Discrete"
+      #   href: discrete/index.qmd
       - about.qmd
+    right:
+      - href: https://www.acc-designs.com
+        text: ACC-Designs
+        icon: box-arrow-up
+
+  sidebar: 
+    - title: "Articles"
+      style: "docked"
+      contents: 
+        - articles/index.qmd
+        - articles/basics.qmd
+
+    # - title: "Projects"
+    #   contents: 
+    #     - projects/index.qmd
+
 
 format:
   html:
     theme:
       - cosmo
-      - brand
     css: styles.css
     toc: true
 

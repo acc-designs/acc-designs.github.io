@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Amin Chegeni">
+<meta name="dcterms.date" content="2026-09-29">
+<meta name="description" content="Design Prerequisites, Tools, …">
 
-<title>About – ACC–R&amp;D</title>
+<title>Introduction to Analog Circuit Design – ACC–R&amp;D</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-43081d808c96cc46af55a3a816ae9eed.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-43081d808c96cc46af55a3a816ae9eed.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -80,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ACC–R&amp;D</span>
     </a>
   </div>
@@ -91,19 +94,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./articles/index.html"> 
+    <a class="nav-link" href="../articles/index.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> 
+    <a class="nav-link" href="../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./discrete/index.html"> 
+    <a class="nav-link" href="../discrete/index.html"> 
 <span class="menu-text">Discrete</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -124,22 +127,48 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#integrating-xschem-with-sky130" id="toc-integrating-xschem-with-sky130" class="nav-link active" data-scroll-target="#integrating-xschem-with-sky130">Integrating Xschem with SKY130</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
+<h1 class="title">Introduction to Analog Circuit Design</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Basics</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Design Prerequisites, Tools, …
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Amin Chegeni </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 29, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -149,9 +178,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>About this site</p>
+<p>To start designing analog circuits, you need to understand the fundamentals of electronic circuits, including nodal and mesh analysis, Kirchhoff’s Current Law (KCL) and Kirchhoff’s Voltage Law (KVL), and, of course, transistors and other nonlinear devices.</p>
+<p>Furthermore, you should be able to design and analyze basic circuit blocks using pen and paper. In other words, you should be able to understand and predict the behavior and functionality of basic circuit blocks before simulating them.</p>
+<p>After designing a circuit, its functionality is verified through simulation, and modifications are made as necessary to achieve the desired performance. Therefore, we need a circuit simulator. Two popular simulators for analog IC design are Synopsys HSPICE and Cadence Spectre. Unfortunately, both of these tools require a paid license.</p>
+<p>Fortunately, there are several free circuit simulators available for analog circuit design. Ngspice and LTspice are two well-known free SPICE circuit simulators. With LTspice, schematic capture and waveform viewing are integrated into the simulator. Ngspice, on the other hand, is primarily a SPICE-based simulator whose input is a circuit netlist and whose output consists of simulation data. Therefore, to work with schematics, you need a schematic capture tool, and to view simulation waveforms, you need a waveform viewer. In this course, we use Ngspice as the circuit simulator.</p>
+<p>For schematic capture, there is a free and open-source tool called Xschem. Since Xschem supports hierarchical schematics, it is well suited for designing large and complex circuits. It is also supported by several open-source PDKs. Furthermore, Xschem provides an integrated waveform viewer, while also supporting external waveform viewers.</p>
+<p>It is recommended to install <strong>Linux</strong>, as all of the essential tools run smoothly on Linux-based systems. Linux distributions are free, and if you are using Windows, you can easily set up a Linux environment through <strong>WSL (Windows Subsystem for Linux)</strong>. For example, I am using <strong>Ubuntu</strong> on WSL.</p>
+<p>Below are the main tools used in a typical analog IC design flow:</p>
+<ul>
+<li><p><strong>Schematic Capture:</strong><br>
+<strong>xschem</strong> — <a href="https://xschem.sourceforge.io/stefan/index.html" class="uri">https://xschem.sourceforge.io/stefan/index.html</a></p></li>
+<li><p><strong>Circuit Simulation:</strong><br>
+<strong>ngspice</strong> — <a href="https://ngspice.sourceforge.io/">https://ngspice.sourceforge.io</a></p></li>
+<li><p><strong>Layout Editor:</strong><br>
+<strong>Magic VLSI</strong> — <a href="http://opencircuitdesign.com/magic/index.html" class="uri">http://opencircuitdesign.com/magic/index.html</a></p></li>
+<li><p><strong>Open PDK:</strong><br>
+<strong>SkyWater SKY130</strong> — <a href="http://opencircuitdesign.com/open_pdks/index.html" class="uri">http://opencircuitdesign.com/open_pdks/index.html</a></p></li>
+</ul>
+<section id="integrating-xschem-with-sky130" class="level3">
+<h3 class="anchored" data-anchor-id="integrating-xschem-with-sky130">Integrating Xschem with SKY130</h3>
+<p>There are clear instructions available for setting up <strong>xschem</strong> with the <strong>SKY130 PDK</strong>:</p>
+<p>Documentation:<br>
+<a href="https://xschem.sourceforge.io/stefan/xschem_man/tutorial_xschem_sky130.html">XSCHEM SKY130 INTEGRATION</a></p>
+<p>A detailed video tutorial is also available, covering xschem, ngspice, and SKY130 PDK usage from scratch:<br>
+<a href="https://youtu.be/bYbkz8FXnsQ?si=K5OG5g5v23BnFscz" class="uri">https://youtu.be/bYbkz8FXnsQ?si=K5OG5g5v23BnFscz</a></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,20 @@
+---
+title: "Articles"
+
+
+listing:
+  contents: "article*.qmd"
+  type: default
+  fields:
+    - title
+    - description
+    - date
+    - categories
+    - docindex
+  sort: 
+    - "categories asc" 
+    - "docindex asc"
+  categories: unnumbered
+
+---
+

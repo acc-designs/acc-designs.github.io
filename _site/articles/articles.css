@@ -1,0 +1,32 @@
+/* Move Quarto's listing categories to the left margin */
+
+#quarto-content {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  column-gap: 2rem;
+}
+
+/* Category sidebar */
+.quarto-listing-category {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Main listing */
+.quarto-listing {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+
+  #quarto-content {
+    display: block;
+  }
+
+  .quarto-listing-category {
+    margin-bottom: 2rem;
+  }
+
+}

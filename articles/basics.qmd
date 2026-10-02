@@ -1,0 +1,22 @@
+---
+title: "Basics"
+
+
+listing:
+  contents: "article*.qmd"
+  type: default
+  fields:
+    - title
+    - description
+    - date
+    - categories
+    - docindex
+  include: 
+    categories: "Basics"  
+  sort: 
+    - "docindex asc"
+#   categories: unnumbered
+
+---
+
+List of Articles in category Basics:
