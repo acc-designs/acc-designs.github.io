@@ -8,6 +8,7 @@ categories:
 docindex: 1
 ---
 
+# Getting started
 To start designing analog circuits, you need to understand the fundamentals of electronic circuits, including nodal and mesh analysis, Kirchhoff’s Current Law (KCL) and Kirchhoff’s Voltage Law (KVL), and, of course, transistors and other nonlinear devices.
 
 Furthermore, you should be able to design and analyze basic circuit blocks using pen and paper. In other words, you should be able to understand and predict the behavior and functionality of basic circuit blocks before simulating them.
@@ -34,7 +35,7 @@ Below are the main tools used in a typical analog IC design flow:
 -   **Open PDK:**\
     **SkyWater SKY130** — <http://opencircuitdesign.com/open_pdks/index.html>
 
-### Integrating Xschem with SKY130
+# Integrating Xschem with SKY130
 
 There are clear instructions available for setting up **xschem** with the **SKY130 PDK**:
 
