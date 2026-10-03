@@ -12,8 +12,7 @@ listing:
     - categories
     - docindex
   sort: 
-    - "categories asc" 
-    - "docindex asc"
+    - "date desc" 
   categories: unnumbered
 
 ---

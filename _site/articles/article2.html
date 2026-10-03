@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amin Chegeni">
-<meta name="dcterms.date" content="2026-09-29">
-<meta name="description" content="Design ADCs.">
+<meta name="dcterms.date" content="2026-10-03">
+<meta name="description" content="Overview small-signal behavior of MOSFET using Ngspice in SK130 open-source PDK">
 
-<title>Intro to ADC – ACC–R&amp;D</title>
+<title>MOSFET Small-Signal Characteristics – ACC–R&amp;D</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,21 +98,13 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects/index.html"> 
-<span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../discrete/index.qmd"> 
-<span class="menu-text">Discrete</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://acc-designs.com"> <i class="bi bi-box-arrow-up" role="img">
+    <a class="nav-link" href="https://www.acc-designs.com"> <i class="bi bi-box-arrow-up" role="img">
 </i> 
 <span class="menu-text">ACC-Designs</span></a>
   </li>  
@@ -135,15 +127,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Intro to ADC</h1>
+<h1 class="title">MOSFET Small-Signal Characteristics</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">ADC</div>
+    <div class="quarto-category">Basics</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Design ADCs.
+    Overview small-signal behavior of MOSFET using Ngspice in SK130 open-source PDK
   </div>
 </div>
 
@@ -160,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2026</p>
+      <p class="date">October 3, 2026</p>
     </div>
   </div>
   
@@ -172,7 +164,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>this is an example of the text.</p>
+<p>We will extract the small-signal characteristics of MOSFETs using open-source and free available PDKs and CAD tools. The analysis is carried out using the SkyWater <strong>sky130</strong> PDK, <strong>Xschem</strong> as the schematic capture tool, and <strong>Ngspice</strong> as the circuit simulator.</p>
+<p>All tools (Xschem, Ngspice, and sky130 PDK) must be installed properly on a Linux system. In this overview, Ubuntu running under WSL is used. The installation procedure is discussed in a separate article.</p>
+<p>The reader is assumed to have a basic understanding of MOSFET device physics and the fundamentals of MOSFET operation. Figure 1 illustrates the structure and symbols of NMOS and PMOS devices. In integrated-circuit design, each MOSFET has four terminals: gate (G), source (S), drain (D), and bulk (B). Modern CMOS technologies typically employ a p-type substrate; therefore, the bulk of all NMOS devices (except native devices) is tied to the substrate, i.e., GND or VSS. In contrast, PMOS devices are fabricated in isolated wells, allowing their bulks to be biased independently.</p>
 
 
 

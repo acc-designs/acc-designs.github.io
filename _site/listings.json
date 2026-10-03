@@ -9,7 +9,8 @@
   {
     "listing": "/articles/basics.html",
     "items": [
-      "/articles/article1.html"
+      "/articles/article1.html",
+      "/articles/article2.html"
     ]
   }
 ]
