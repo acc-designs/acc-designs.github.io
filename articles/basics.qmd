@@ -4,18 +4,20 @@ title: "Basics"
 
 listing:
   contents: "article*.qmd"
-  type: default
+  type: table
   fields:
     - title
     - description
     - date
-    - categories
     - docindex
+  field-display-names: 
+    docindex: "index"
   include: 
     categories: "Basics"  
   sort: 
     - "docindex asc"
-#   categories: unnumbered
+  filter-ui: false
+  sort-ui: false
 
 ---
 

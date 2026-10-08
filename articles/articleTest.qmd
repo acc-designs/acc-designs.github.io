@@ -1,0 +1,26 @@
+---
+title: "Article Test"
+description: "test of article"
+author: "Amin Chegeni"
+date: 2026-10-03
+categories:
+  - Test
+docindex: 1
+bibliography: references.bib
+csl: ieee.csl
+#notebook-view: true
+---
+
+I want to refer to @designo
+
+{{< embed /data/nmos_plots.ipynb#fig-id-vds >}}
+
+the next plot:
+
+{{< embed /data/nmos_plots.ipynb#fig-gmgds-vgs >}}
+
+and 
+
+{{< embed /data/nmos_plots.ipynb#fig-id-vds-0.8 >}}
+
+end
