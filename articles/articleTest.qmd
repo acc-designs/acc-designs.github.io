@@ -8,7 +8,7 @@ categories:
 docindex: 1
 bibliography: references.bib
 csl: ieee.csl
-#notebook-view: true
+notebook-view: false
 ---
 
 I want to refer to @designo
