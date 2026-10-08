@@ -18,7 +18,7 @@
     "href": "articles/articleTest.html",
     "title": "Article Test",
     "section": "",
-    "text": "I want to refer to [1]\n\n\n\n\n\n\n\n\n\nFigure 1: Drain current \\(I_D\\) versus drain-source voltage \\(V_{DS}\\) for different \\(V_{GS}\\) values.\n\n\n\n\n\nSource: nmos_plots.ipynb\nthe next plot:\n\n\n\n\n\n\n\n\n\n\n\n\n(a) \\(g_m\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n(b) \\(g_{ds}\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\nFigure 2: Variation of \\(g_m\\) and $g_{ds} versus \\(V_{GS}\\) for \\(V_{DS}=1V\\).\n\n\n\n\nand\n\n\n\n\n\n\n\n\n\nFigure 3: Drain current \\(I_D\\) versus drain-source voltage \\(V_{DS}\\) for \\(V_{GS}=0.8\\).\n\n\n\n\n\n\nend\n\n\n\n\nReferences\n\n[1] B. Razavi, Design of analog CMOS integrated circuits. Available: https://www.mheducation.com/highered/product/design-of-analog-cmos-integrated-circuits-razavi.html"
+    "text": "I want to refer to [1]\n\n\n\n\n\n\n\n\n\nFigure 1: Drain current \\(I_D\\) versus drain-source voltage \\(V_{DS}\\) for different \\(V_{GS}\\) values.\n\n\n\n\n\n\nthe next plot:\n\n\n\n\n\n\n\n\n\n\n\n\n(a) \\(g_m\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n(b) \\(g_{ds}\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\nFigure 2: Variation of \\(g_m\\) and $g_{ds} versus \\(V_{GS}\\) for \\(V_{DS}=1V\\).\n\n\n\n\nand\n\n\n\n\n\n\n\n\n\nFigure 3: Drain current \\(I_D\\) versus drain-source voltage \\(V_{DS}\\) for \\(V_{GS}=0.8\\).\n\n\n\n\n\n\nend\n\n\n\n\nReferences\n\n[1] B. Razavi, Design of analog CMOS integrated circuits. Available: https://www.mheducation.com/highered/product/design-of-analog-cmos-integrated-circuits-razavi.html"
   },
   {
     "objectID": "articles/article2.html",
