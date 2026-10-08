@@ -145,7 +145,7 @@ $$ {#eq-gmb}
 
 The circuit in @fig-sch_DC_sweep is used to evaluate the small-signal, low frequency behavior of an NMOS device. Because capacitances are not considered in this section, DC-sweep analysis is employed.
 
-![Simple NMOS circuit used for DC-sweep analysis](media/article2/image3.png){#fig-sch_DC_sweep width="50%"}
+![Simple NMOS circuit used for DC-sweep analysis](media/article2/image3.png){#fig-sch_DC_sweep}
 
 Here, the W/L is 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep is from 0 to 1.8V. @fig-gmgds-vgs shows gm and gds of the NMOS versus VGS.
 
