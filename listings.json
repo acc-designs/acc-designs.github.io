@@ -1,14 +1,17 @@
 [
   {
-    "listing": "/articles/basics.html",
+    "listing": "/articles/index.html",
     "items": [
+      "/articles/article2.html",
+      "/articles/articleTest.html",
       "/articles/article1.html"
     ]
   },
   {
-    "listing": "/articles/index.html",
+    "listing": "/articles/basics.html",
     "items": [
-      "/articles/article1.html"
+      "/articles/article1.html",
+      "/articles/article2.html"
     ]
   }
 ]

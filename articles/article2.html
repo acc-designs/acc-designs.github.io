@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amin Chegeni">
-<meta name="dcterms.date" content="2026-09-29">
-<meta name="description" content="Design Prerequisites, Tools, …">
+<meta name="dcterms.date" content="2026-10-03">
+<meta name="description" content="Overview small-signal behavior of MOSFET using Ngspice in SK130 open-source PDK">
 
-<title>Introduction to Analog Circuit Design – ACC–R&amp;D</title>
+<title>MOSFET Small-Signal Characteristics – ACC–R&amp;D</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,7 +29,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -77,6 +97,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -129,8 +178,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#integrating-xschem-with-sky130" id="toc-integrating-xschem-with-sky130" class="nav-link" data-scroll-target="#integrating-xschem-with-sky130">Integrating Xschem with SKY130</a></li>
+  <li><a href="#operation-regions" id="toc-operation-regions" class="nav-link active" data-scroll-target="#operation-regions">Operation regions:</a></li>
+  <li><a href="#voltagecurrent-characteristics" id="toc-voltagecurrent-characteristics" class="nav-link" data-scroll-target="#voltagecurrent-characteristics">Voltage–Current Characteristics:</a>
+  <ul class="collapse">
+  <li><a href="#triode-region-on" id="toc-triode-region-on" class="nav-link" data-scroll-target="#triode-region-on">Triode region (ON):</a></li>
+  <li><a href="#saturation-region" id="toc-saturation-region" class="nav-link" data-scroll-target="#saturation-region">Saturation region:</a></li>
+  </ul></li>
+  <li><a href="#second-order-effects" id="toc-second-order-effects" class="nav-link" data-scroll-target="#second-order-effects">Second-order effects:</a>
+  <ul class="collapse">
+  <li><a href="#body-effect" id="toc-body-effect" class="nav-link" data-scroll-target="#body-effect">Body effect:</a></li>
+  <li><a href="#subthreshold-weak-inversion" id="toc-subthreshold-weak-inversion" class="nav-link" data-scroll-target="#subthreshold-weak-inversion">Subthreshold (weak inversion):</a></li>
+  </ul></li>
+  <li><a href="#small-signal-model" id="toc-small-signal-model" class="nav-link" data-scroll-target="#small-signal-model">Small-signal model:</a>
+  <ul class="collapse">
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations:</a></li>
+  </ul></li>
+  <li><a href="#simulation-results" id="toc-simulation-results" class="nav-link" data-scroll-target="#simulation-results">Simulation results:</a>
+  <ul class="collapse">
+  <li><a href="#long-channel-nmos" id="toc-long-channel-nmos" class="nav-link" data-scroll-target="#long-channel-nmos">Long-channel NMOS:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -139,7 +205,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Analog Circuit Design</h1>
+<h1 class="title">MOSFET Small-Signal Characteristics</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Basics</div>
   </div>
@@ -147,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Design Prerequisites, Tools, …
+    Overview small-signal behavior of MOSFET using Ngspice in SK130 open-source PDK
   </div>
 </div>
 
@@ -164,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2026</p>
+      <p class="date">October 3, 2026</p>
     </div>
   </div>
   
@@ -176,38 +242,227 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<p>To start designing analog circuits, you need to understand the fundamentals of electronic circuits, including nodal and mesh analysis, Kirchhoff’s Current Law (KCL) and Kirchhoff’s Voltage Law (KVL), and, of course, transistors and other nonlinear devices.</p>
-<p>Furthermore, you should be able to design and analyze basic circuit blocks using pen and paper. In other words, you should be able to understand and predict the behavior and functionality of basic circuit blocks before simulating them.</p>
-<p>After designing a circuit, its functionality is verified through simulation, and modifications are made as necessary to achieve the desired performance. Therefore, we need a circuit simulator. Two popular simulators for analog IC design are Synopsys HSPICE and Cadence Spectre. Unfortunately, both of these tools require a paid license.</p>
-<p>Fortunately, there are several free circuit simulators available for analog circuit design. Ngspice and LTspice are two well-known free SPICE circuit simulators. With LTspice, schematic capture and waveform viewing are integrated into the simulator. Ngspice, on the other hand, is primarily a SPICE-based simulator whose input is a circuit netlist and whose output consists of simulation data. Therefore, to work with schematics, you need a schematic capture tool, and to view simulation waveforms, you need a waveform viewer. In this course, we use Ngspice as the circuit simulator.</p>
-<p>For schematic capture, there is a free and open-source tool called Xschem. Since Xschem supports hierarchical schematics, it is well suited for designing large and complex circuits. It is also supported by several open-source PDKs. Furthermore, Xschem provides an integrated waveform viewer, while also supporting external waveform viewers.</p>
-<p>It is recommended to install <strong>Linux</strong>, as all of the essential tools run smoothly on Linux-based systems. Linux distributions are free, and if you are using Windows, you can easily set up a Linux environment through <strong>WSL (Windows Subsystem for Linux)</strong>. For example, I am using <strong>Ubuntu</strong> on WSL.</p>
-<p>Below are the main tools used in a typical analog IC design flow:</p>
+<p>We will extract the small-signal characteristics of MOSFETs using open-source and free available PDKs and CAD tools. The analysis is carried out using the SkyWater <strong>sky130</strong> PDK, <strong>Xschem</strong> as the schematic capture tool, and <strong>Ngspice</strong> as the circuit simulator.</p>
+<p>All tools (Xschem, Ngspice, and sky130 PDK) must be installed properly on a Linux system. In this overview, Ubuntu running under WSL is used. The installation procedure is discussed in a separate article.</p>
+<p>The reader is assumed to have a basic understanding of MOSFET device physics and the fundamentals of MOSFET operation. <a href="#fig-mosfet" class="quarto-xref">Figure&nbsp;1</a> illustrates the structure and symbols of NMOS and PMOS devices. In integrated-circuit design, each MOSFET has four terminals: gate (G), source (S), drain (D), and bulk (B). Modern CMOS technologies typically employ a p-type substrate; therefore, the bulk of all NMOS devices (except native devices) is tied to the substrate, i.e., GND or VSS. In contrast, PMOS devices are fabricated in isolated wells, allowing their bulks to be biased independently.</p>
+<div id="fig-mosfet" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mosfet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/article2\image1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosfet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: (a) structure of NMOS and PMOS, (b) symbols (from <span class="citation" data-cites="designo"><a href="#ref-designo" role="doc-biblioref">[1]</a></span>)
+</figcaption>
+</figure>
+</div>
+<section id="operation-regions" class="level1">
+<h1>Operation regions:</h1>
+<p>A MOSFET behaves as a switch (ON or OFF) in digital design, but in analog design it operates in one of three regions:</p>
 <ul>
-<li><p><strong>Schematic Capture:</strong><br>
-<strong>xschem</strong> — <a href="https://xschem.sourceforge.io/stefan/index.html" class="uri">https://xschem.sourceforge.io/stefan/index.html</a></p></li>
-<li><p><strong>Circuit Simulation:</strong><br>
-<strong>ngspice</strong> — <a href="https://ngspice.sourceforge.io/">https://ngspice.sourceforge.io</a></p></li>
-<li><p><strong>Layout Editor:</strong><br>
-<strong>Magic VLSI</strong> — <a href="http://opencircuitdesign.com/magic/index.html" class="uri">http://opencircuitdesign.com/magic/index.html</a></p></li>
-<li><p><strong>Open PDK:</strong><br>
-<strong>SkyWater SKY130</strong> — <a href="http://opencircuitdesign.com/open_pdks/index.html" class="uri">http://opencircuitdesign.com/open_pdks/index.html</a></p></li>
+<li>Cut-off (off): <span class="math inline">\(V_{GS} &lt; V_{TH} \quad and \quad V_{GD} &lt; 0\)</span></li>
+<li>Saturation: <span class="math inline">\(V_{GS} &gt; V_{TH} \quad and \quad V_{GD} &lt; 0\)</span></li>
+<li>Triode (on): <span class="math inline">\(V_{GS} &gt; V_{TH} \quad and \quad V_{GD} &gt; 0\)</span></li>
 </ul>
+<p>Note that the transition between these regions is smooth, especially near the threshold voltage.</p>
 </section>
-<section id="integrating-xschem-with-sky130" class="level1">
-<h1>Integrating Xschem with SKY130</h1>
-<p>There are clear instructions available for setting up <strong>xschem</strong> with the <strong>SKY130 PDK</strong>:</p>
-<p>Documentation:<br>
-<a href="https://xschem.sourceforge.io/stefan/xschem_man/tutorial_xschem_sky130.html">XSCHEM SKY130 INTEGRATION</a></p>
-<p>A detailed video tutorial is also available, covering xschem, ngspice, and SKY130 PDK usage from scratch:<br>
-<a href="https://youtu.be/bYbkz8FXnsQ?si=K5OG5g5v23BnFscz" class="uri">https://youtu.be/bYbkz8FXnsQ?si=K5OG5g5v23BnFscz</a></p>
+<section id="voltagecurrent-characteristics" class="level1">
+<h1>Voltage–Current Characteristics:</h1>
+<p>To explain MOSFET operation, we review the V–I equations of an NMOS transistor. PMOS equations follow the same form.</p>
+<section id="triode-region-on" class="level2">
+<h2 class="anchored" data-anchor-id="triode-region-on">Triode region (ON):</h2>
+<p><span id="eq-DrainCurrent"><span class="math display">\[
+I_D=\mu_nC_{ox}\frac{W}{L}\left[\left(V_{GS}-V_{TH}\right)V_{DS}-\frac{1}{2}V_{DS}^2\right]
+\tag{1}\]</span></span></p>
+<p>For <span class="math inline">\(V_{DS} &lt;&lt; 2(V_{GS} - V_{TH})\)</span>:</p>
+<p><span id="eq-IdTriode2"><span class="math display">\[
+I_D\approx\mu_nC_{ox}\frac{W}{L}\left(V_{GS}-V_{TH}\right)V_{DS}
+\tag{2}\]</span></span></p>
+</section>
+<section id="saturation-region" class="level2">
+<h2 class="anchored" data-anchor-id="saturation-region">Saturation region:</h2>
+<p>Considering channel length modulation, the mosfet current is:</p>
+<p><span id="eq-IdSat"><span class="math display">\[
+I_D=\frac{1}{2}\mu_nC_{ox}\frac{W}{L}\left(V_{GS}-V_{TH}\right)^2(1+\lambda\ V_{DS})
+\tag{3}\]</span></span></p>
+<p>The parameter λ is the channel-length modulation coefficient, which decreases with increasing channel length.</p>
+<p><span id="eq-lambda"><span class="math display">\[
+\lambda\propto\frac{1}{L}
+\tag{4}\]</span></span></p>
+</section>
+</section>
+<section id="second-order-effects" class="level1">
+<h1>Second-order effects:</h1>
+<section id="body-effect" class="level2">
+<h2 class="anchored" data-anchor-id="body-effect">Body effect:</h2>
+<p>Increasing the source-to-bulk voltage raises the threshold voltage:</p>
+<p><span id="eq-vth"><span class="math display">\[
+V_{TH}=V_{TH0}+\gamma\left(\sqrt{2\Phi_F+V_{SB}}-\sqrt{\left|2\Phi_F\right|}\right)
+\tag{5}\]</span></span></p>
+<p><span id="eq-gamma"><span class="math display">\[
+\gamma=\frac{\sqrt{2q\epsilon_{si}N_{sub}}}{C_{ox}}\approx0.3\ to\ 0.4\ \left(V^\frac{1}{2}\right)
+\tag{6}\]</span></span></p>
+<p><span id="eq-vth0"><span class="math display">\[
+V_{TH0}=\Phi_{MS}+2\Phi_F+\frac{Q_{dep}}{C_{ox}}=V_{TH}\ when\ V_{SB}=0
+\tag{7}\]</span></span></p>
+</section>
+<section id="subthreshold-weak-inversion" class="level2">
+<h2 class="anchored" data-anchor-id="subthreshold-weak-inversion">Subthreshold (weak inversion):</h2>
+<p>When <span class="math inline">\(V_{GS} \approx V_{TH}\)</span>, the device enters weak inversion, and the drain current follows:</p>
+<p><span id="eq-IdWeak"><span class="math display">\[
+I_D=I_0\exp{\frac{V_{GS}}{\xi V_T}}
+\tag{8}\]</span></span></p>
+<p>where <span class="math inline">\(I_0\)</span> is proportional to <span class="math inline">\(W/L\)</span>, <span class="math inline">\(\xi &gt; 1\)</span>, and <span class="math inline">\(V_T=kT/q\)</span>. We say the device operates in ‘weak inversion’ in contrast with ‘strong inversion’.</p>
+</section>
+</section>
+<section id="small-signal-model" class="level1">
+<h1>Small-signal model:</h1>
+<p><a href="#fig-mosmodel" class="quarto-xref">Figure&nbsp;2</a> shows the small-signal model of NMOS <span class="citation" data-cites="designo"><a href="#ref-designo" role="doc-biblioref">[1]</a></span>. The reader can extract the model of PMOS as well.</p>
+<div id="fig-mosmodel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mosmodel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/article2\image2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosmodel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: (a) Basic MOS small-signal model; (b) channel-length modulation represented by a dependent current source; (c) channel-length modulation represented by a resistor; (d) body effect represented by a dependent current source.
+</figcaption>
+</figure>
+</div>
+<section id="equations" class="level2">
+<h2 class="anchored" data-anchor-id="equations">Equations:</h2>
+<p>In triode region, a MOSFET behaves as a voltage-controlled resistor:</p>
+<p><span id="eq-Ron"><span class="math display">\[
+R_{on}=\frac{1}{\mu_nC_{ox}\frac{W}{L}(V_{GS}-V_{TH})}
+\tag{9}\]</span></span></p>
+<p>In saturation, the transconductance is:</p>
+<p><span id="eq-gm"><span class="math display">\[
+g_m=\frac{\partial I_D}{\partial V_{GS}}
+\tag{10}\]</span></span></p>
+<p>Equivalent expressions include:</p>
+<p><span id="eq-gm2"><span class="math display">\[
+g_m=\mu_nC_{ox}\frac{W}{L}(V_{GS}-V_{TH})
+\tag{11}\]</span></span></p>
+<p><span id="eq-gm3"><span class="math display">\[
+g_m=\sqrt{2\mu_nC_{ox}\frac{W}{L}I_D}
+\tag{12}\]</span></span></p>
+<p><span id="eq-gm4"><span class="math display">\[
+g_m=\frac{2I_D}{V_{GS}-V_{TH}}
+\tag{13}\]</span></span></p>
+<p>The output resistance due to channel-length modulation is:</p>
+<p><span id="eq-rout"><span class="math display">\[
+r_o=\frac{1}{g_{ds}}=\frac{\partial V_{DS}}{\partial I_D}=\frac{1}{\frac{1}{2}\mu_nC_{ox}\frac{W}{L}\left(V_{GS}-V_{TH}\right)^2\times\lambda}
+\tag{14}\]</span></span></p>
+<p>Given <span class="math inline">\(\lambda V_{DS} &lt;&lt; 1\)</span>, we have</p>
+<p><span id="eq-rout2"><span class="math display">\[
+r_o=\frac{1}{g_{ds}}=\frac{1+\lambda V_{DS}}{\lambda I_D}\approx\frac{1}{\lambda I_D}
+\tag{15}\]</span></span></p>
+<p>The body-effect transconductance is:</p>
+<p><span id="eq-gmb"><span class="math display">\[
+g_{mb}=\frac{\partial I_D}{\partial V_{BS}}=gm\frac{\gamma}{2\sqrt{2\Phi_F+V_{SB}}}=\eta\ g_m
+\tag{16}\]</span></span></p>
+</section>
+</section>
+<section id="simulation-results" class="level1">
+<h1>Simulation results:</h1>
+<section id="long-channel-nmos" class="level2">
+<h2 class="anchored" data-anchor-id="long-channel-nmos">Long-channel NMOS:</h2>
+<p>The circuit in <a href="#fig-sch_DC_sweep" class="quarto-xref">Figure&nbsp;3</a> is used to evaluate the small-signal, low frequency behavior of an NMOS device. Because capacitances are not considered in this section, DC-sweep analysis is employed.</p>
+<div id="fig-sch_DC_sweep" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sch_DC_sweep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/article2/image3.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sch_DC_sweep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Simple NMOS circuit used for DC-sweep analysis
+</figcaption>
+</figure>
+</div>
+<p>Here, the W/L is 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep is from 0 to 1.8V. <a href="#fig-gmgds-vgs" class="quarto-xref">Figure&nbsp;4</a> shows gm and gds of the NMOS versus VGS.</p>
+<div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-gmgds-vgs">
+<div id="fig-gmgds-vgs" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gmgds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-gmgds-vgs" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-gmgds-vgs-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-gmgds-vgs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-1.png" data-ref-parent="fig-gmgds-vgs" width="471" height="374" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-gmgds-vgs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) <span class="math inline">\(g_m\)</span> versus <span class="math inline">\(V_{GS}\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-gmgds-vgs" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-gmgds-vgs-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-2.png" data-ref-parent="fig-gmgds-vgs" width="471" height="374" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gmgds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Variation of <span class="math inline">\(g_m\)</span> and $g_{ds} versus <span class="math inline">\(V_{GS}\)</span> for <span class="math inline">\(V_{DS}=1V\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>In this circuit, <span class="math inline">\(V_{TH}\)</span> ≈ 470mV. As expected, by increasing <span class="math inline">\(V_{GS}\)</span>, both <span class="math inline">\(g_m\)</span> and <span class="math inline">\(g_{ds}\)</span> increase. It’s interesting to see the gds – Id relationship as shown in <a href="#fig-gds-id" class="quarto-xref">Figure&nbsp;5</a>. The curve is nearly linear, and according to <a href="#eq-rout2" class="quarto-xref">Equation&nbsp;15</a>, its slope is corresponds to the channel-length modulation coefficient <span class="math inline">\(\lambda\)</span>.</p>
+<div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-gds-id">
+<div id="cell-fig-gds-id" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div id="fig-gds-id" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gds-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="article2_files/figure-html/-data-nmos_plots-fig-gds-id-output-1.png" width="664" height="470" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gds-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Variation of <span class="math inline">\(g_{ds}\)</span> versus Drain current <span class="math inline">\(I_d\)</span> for <span class="math inline">\(V_{DS}=1.8V\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The intrinsic small-signal gain of a MOSFET is defined as</p>
+<p><span id="eq-fetgain"><span class="math display">\[
+A_v = g_mr_o = \frac{g_m}{g_{ds}}
+\tag{17}\]</span></span></p>
+<p>The intrinsic gain of an long-channel NMOS is shown in <a href="#fig-gm_gds-vgs" class="quarto-xref">Figure&nbsp;6</a>. As can be seen, in saturation region, the gain peaks at around <span class="math inline">\(V_{GS}=0.56V\)</span> that means with overdrive voltage of abour 100mV the device reachs its maximum intrinsic gain.</p>
+<div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-gm_gds-vgs">
+<div id="cell-fig-gm_gds-vgs" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div id="fig-gm_gds-vgs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gm_gds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="article2_files/figure-html/-data-nmos_plots-fig-gm_gds-vgs-output-1.png" width="663" height="470" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gm_gds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u/1.5u.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-designo" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">B. Razavi, <em>Design of analog CMOS integrated circuits</em>. Available: <a href="https://www.mheducation.com/highered/product/design-of-analog-cmos-integrated-circuits-razavi.html">https://www.mheducation.com/highered/product/design-of-analog-cmos-integrated-circuits-razavi.html</a></div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
