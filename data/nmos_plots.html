@@ -288,7 +288,7 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>vds <span class="op">=</span> var3.T[<span class="dv">0</span>, :]</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#target curve</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>target_vds <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>target_vds <span class="op">=</span> <span class="fl">1.8</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(vds <span class="op">-</span> target_vds))</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
@@ -335,7 +335,7 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 <div id="fig-gmgds-vgs-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-2.png" data-ref-parent="fig-gmgds-vgs" width="471" height="374" class="figure-img">
+<img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-2.png" data-ref-parent="fig-gmgds-vgs" width="472" height="374" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -346,7 +346,7 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gmgds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Variation of <span class="math inline">\(g_m\)</span> and $g_{ds} versus <span class="math inline">\(V_{GS}\)</span> for <span class="math inline">\(V_{DS}=1V\)</span>.
+Figure&nbsp;3: Variation of <span class="math inline">\(g_m\)</span> and <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span> for <span class="math inline">\(V_{DS}=1V\)</span>.
 </figcaption>
 </figure>
 </div>
