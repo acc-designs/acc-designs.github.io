@@ -161,6 +161,15 @@ $$
 A_v = g_mr_o = \frac{g_m}{g_{ds}}
 $$ {#eq-fetgain}
 
-The intrinsic gain of an long-channel NMOS is shown in @fig-gm_gds-vgs. As can be seen, in saturation region, the gain peaks at around $V_{GS}=0.56V$ that means with overdrive voltage of abour 100mV the device reachs its maximum intrinsic gain.
+The intrinsic gain of an long-channel NMOS is shown in @fig-gm_gds-vgs. As can be seen, in saturation region, the gain peaks at around $V_{GS}=0.56V$ that means with overdrive voltage of $V_{ov}=V_{GS}-V_{TH}\approx 100mV$, the device reachs its maximum intrinsic gain, and then, as overdrive voltage $V_{ov}$ increases, the intrinsic gain drops.
 
 {{< embed /data/nmos_plots.ipynb#fig-gm_gds-vgs >}}
+
+For $V_{ov}$ below roughly 80mV the device is in 'weak inversion' region. When $V_{GS}<V_{TH}$, the transistor is off and intrinsic gain does not make sense.
+
+## Short-channel NMOS:
+
+For channel length below 1 um (sub-micron), the MOS device behavior is significantly affected by short-channel and higher-order effects. @fig-shortch illustrates how these phenomena alter the small-signal parameters for a device with $W/L = 10\mu / 0.15\mu$. Detailed discussion of short-channel devices will be provided in a subsequent article.
+
+{{< embed /data/nmos_plots.ipynb#fig-shortch >}}
+
