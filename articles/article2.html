@@ -8,7 +8,7 @@
 
 <meta name="author" content="Amin Chegeni">
 <meta name="dcterms.date" content="2026-10-03">
-<meta name="description" content="Overview small-signal behavior of MOSFET using Ngspice in SK130 open-source PDK">
+<meta name="description" content="An overview of MOSFET small-signal behavior using Ngspice and the open-source SkyWater SKY130 PDK">
 
 <title>MOSFET Small-Signal Characteristics – ACC–R&amp;D</title>
 <style>
@@ -214,7 +214,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    Overview small-signal behavior of MOSFET using Ngspice in SK130 open-source PDK
+    An overview of MOSFET small-signal behavior using Ngspice and the open-source SkyWater SKY130 PDK
   </div>
 </div>
 
@@ -243,9 +243,9 @@ window.Quarto = {
 </header>
 
 
-<p>We will extract the small-signal characteristics of MOSFETs using open-source and free available PDKs and CAD tools. The analysis is carried out using the SkyWater <strong>sky130</strong> PDK, <strong>Xschem</strong> as the schematic capture tool, and <strong>Ngspice</strong> as the circuit simulator.</p>
+<p>We will extract the small-signal characteristics of MOSFETs using freely available, open-source PDKs and CAD tools. The analysis is carried out using the SkyWater <strong>sky130</strong> PDK, <strong>Xschem</strong> as the schematic capture tool, and <strong>Ngspice</strong> as the circuit simulator.</p>
 <p>All tools (Xschem, Ngspice, and sky130 PDK) must be installed properly on a Linux system. In this overview, Ubuntu running under WSL is used. The installation procedure is discussed in a separate article.</p>
-<p>The reader is assumed to have a basic understanding of MOSFET device physics and the fundamentals of MOSFET operation. <a href="#fig-mosfet" class="quarto-xref">Figure&nbsp;1</a> illustrates the structure and symbols of NMOS and PMOS devices. In integrated-circuit design, each MOSFET has four terminals: gate (G), source (S), drain (D), and bulk (B). Modern CMOS technologies typically employ a p-type substrate; therefore, the bulk of all NMOS devices (except native devices) is tied to the substrate, i.e., GND or VSS. In contrast, PMOS devices are fabricated in isolated wells, allowing their bulks to be biased independently.</p>
+<p>The reader is assumed to have a basic understanding of MOSFET device physics and the fundamentals of MOSFET operation. <a href="#fig-mosfet" class="quarto-xref">Figure&nbsp;1</a> illustrates the structure and symbols of NMOS and PMOS devices. In integrated-circuit design, a MOSFET has four terminals: gate (G), source (S), drain (D), and bulk (B). Modern CMOS technologies typically employ a p-type substrate; therefore, the bulk of all NMOS devices (except native devices) is tied to the substrate, i.e., GND or VSS. In contrast, PMOS devices are fabricated in isolated wells, allowing their bulks to be biased independently.</p>
 <div id="fig-mosfet" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mosfet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -281,11 +281,11 @@ I_D\approx\mu_nC_{ox}\frac{W}{L}\left(V_{GS}-V_{TH}\right)V_{DS}
 </section>
 <section id="saturation-region" class="level2">
 <h2 class="anchored" data-anchor-id="saturation-region">Saturation region:</h2>
-<p>Considering channel length modulation, the mosfet current is:</p>
+<p>Including channel length modulation, the mosfet current is given by:</p>
 <p><span id="eq-IdSat"><span class="math display">\[
 I_D=\frac{1}{2}\mu_nC_{ox}\frac{W}{L}\left(V_{GS}-V_{TH}\right)^2(1+\lambda\ V_{DS})
 \tag{3}\]</span></span></p>
-<p>The parameter λ is the channel-length modulation coefficient, which decreases with increasing channel length.</p>
+<p>The parameter <span class="math inline">\(\lambda\)</span> is the channel-length modulation coefficient, which decreases with increasing channel length.</p>
 <p><span id="eq-lambda"><span class="math display">\[
 \lambda\propto\frac{1}{L}
 \tag{4}\]</span></span></p>
@@ -312,12 +312,12 @@ V_{TH0}=\Phi_{MS}+2\Phi_F+\frac{Q_{dep}}{C_{ox}}=V_{TH}\ when\ V_{SB}=0
 <p><span id="eq-IdWeak"><span class="math display">\[
 I_D=I_0\exp{\frac{V_{GS}}{\xi V_T}}
 \tag{8}\]</span></span></p>
-<p>where <span class="math inline">\(I_0\)</span> is proportional to <span class="math inline">\(W/L\)</span>, <span class="math inline">\(\xi &gt; 1\)</span>, and <span class="math inline">\(V_T=kT/q\)</span>. We say the device operates in ‘weak inversion’ in contrast with ‘strong inversion’.</p>
+<p>where <span class="math inline">\(I_0\)</span> is proportional to <span class="math inline">\(W/L\)</span>, <span class="math inline">\(\xi &gt; 1\)</span>, and <span class="math inline">\(V_T=kT/q\)</span>. The device is said to operate in <em>weak inversion</em>, as opposed to <em>strong inversion</em>.</p>
 </section>
 </section>
 <section id="small-signal-model" class="level1">
 <h1>Small-signal model:</h1>
-<p><a href="#fig-mosmodel" class="quarto-xref">Figure&nbsp;2</a> shows the small-signal model of NMOS <span class="citation" data-cites="designo"><a href="#ref-designo" role="doc-biblioref">[1]</a></span>. The reader can extract the model of PMOS as well.</p>
+<p><a href="#fig-mosmodel" class="quarto-xref">Figure&nbsp;2</a> shows the small-signal model of NMOS <span class="citation" data-cites="designo"><a href="#ref-designo" role="doc-biblioref">[1]</a></span>. The corresponding small-signal model for a PMOS transistor can be derived in the same way.</p>
 <div id="fig-mosmodel" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mosmodel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -377,7 +377,7 @@ Figure&nbsp;3: Simple NMOS circuit used for DC-sweep analysis
 </figcaption>
 </figure>
 </div>
-<p>Here, the W/L is 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep is from 0 to 1.8V. <a href="#fig-gmgds-vgs" class="quarto-xref">Figure&nbsp;4</a> shows gm and gds of the NMOS versus VGS.</p>
+<p>Here, W/L = 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep ranges from 0 to 1.8V. <a href="#fig-gmgds-vgs" class="quarto-xref">Figure&nbsp;4</a> shows gm and gds of the NMOS versus VGS.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-gmgds-vgs">
 <div id="fig-gmgds-vgs" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
@@ -415,7 +415,7 @@ Figure&nbsp;4: Variation of <span class="math inline">\(g_m\)</span> and <span c
 </figure>
 </div>
 </div>
-<p>In this circuit, <span class="math inline">\(V_{TH}\)</span> ≈ 470mV. As expected, by increasing <span class="math inline">\(V_{GS}\)</span>, both <span class="math inline">\(g_m\)</span> and <span class="math inline">\(g_{ds}\)</span> increase. It’s interesting to see the gds – Id relationship as shown in <a href="#fig-gds-id" class="quarto-xref">Figure&nbsp;5</a>. The curve is nearly linear, and according to <a href="#eq-rout2" class="quarto-xref">Equation&nbsp;15</a>, its slope is corresponds to the channel-length modulation coefficient <span class="math inline">\(\lambda\)</span>.</p>
+<p>In this circuit, <span class="math inline">\(V_{TH} \approx 470mV\)</span>. As <span class="math inline">\(V_{GS}\)</span> increases, both <span class="math inline">\(g_m\)</span> and <span class="math inline">\(g_{ds}\)</span> increase as expected. It’s interesting to see the gds – Id relationship as shown in <a href="#fig-gds-id" class="quarto-xref">Figure&nbsp;5</a>. The curve is nearly linear, and according to <a href="#eq-rout2" class="quarto-xref">Equation&nbsp;15</a>, its slope corresponds to the channel-length modulation coefficient <span class="math inline">\(\lambda\)</span>.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-gds-id">
 <div id="cell-fig-gds-id" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
@@ -436,7 +436,7 @@ Figure&nbsp;5: Variation of <span class="math inline">\(g_{ds}\)</span> versus D
 <p><span id="eq-fetgain"><span class="math display">\[
 A_v = g_mr_o = \frac{g_m}{g_{ds}}
 \tag{17}\]</span></span></p>
-<p>The intrinsic gain of an long-channel NMOS is shown in <a href="#fig-gm_gds-vgs" class="quarto-xref">Figure&nbsp;6</a>. As can be seen, in saturation region, the gain peaks at around <span class="math inline">\(V_{GS}=0.56V\)</span> that means with overdrive voltage of <span class="math inline">\(V_{ov}=V_{GS}-V_{TH}\approx 100mV\)</span>, the device reachs its maximum intrinsic gain, and then, as overdrive voltage <span class="math inline">\(V_{ov}\)</span> increases, the intrinsic gain drops.</p>
+<p>The intrinsic gain of a long-channel NMOS transistor is shown in <a href="#fig-gm_gds-vgs" class="quarto-xref">Figure&nbsp;6</a>. As can be seen, in saturation region, the gain peaks at approximately <span class="math inline">\(V_{GS}=0.56V\)</span>. This corresponds to an overdrive voltage of <span class="math inline">\(V_{ov}=V_{GS}-V_{TH}\approx 100mV\)</span>, at which the device achieves its maximum intrinsic gain. As <span class="math inline">\(V_{ov}\)</span> increases further, the intrinsic gain decreases.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-gm_gds-vgs">
 <div id="cell-fig-gm_gds-vgs" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
@@ -453,11 +453,11 @@ Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </div>
 </div>
 </div>
-<p>For <span class="math inline">\(V_{ov}\)</span> below roughly 80mV the device is in ‘weak inversion’ region. When <span class="math inline">\(V_{GS}&lt;V_{TH}\)</span>, the transistor is off and intrinsic gain does not make sense.</p>
+<p>For <span class="math inline">\(V_{ov}\)</span> below roughly 80mV the device operates in the <em>weak-inversion</em> region. When <span class="math inline">\(V_{GS}&lt;V_{TH}\)</span>, the transistor is off and the concept of intrinsic gain is no longer meaningful.</p>
 </section>
 <section id="short-channel-nmos" class="level2">
 <h2 class="anchored" data-anchor-id="short-channel-nmos">Short-channel NMOS:</h2>
-<p>For channel length below 1 um (sub-micron), the MOS device behavior is significantly affected by short-channel and higher-order effects. <a href="#fig-shortch" class="quarto-xref">Figure&nbsp;7</a> illustrates how these phenomena alter the small-signal parameters for a device with <span class="math inline">\(W/L = 10\mu / 0.15\mu\)</span>. Detailed discussion of short-channel devices will be provided in a subsequent article.</p>
+<p>For channel length below <span class="math inline">\(1\mu m\)</span> (submicron), MOSFET behavior is significantly affected by short-channel and other higher-order effects. <a href="#fig-shortch" class="quarto-xref">Figure&nbsp;7</a> illustrates how these effects alter the small-signal parameters of a device with <span class="math inline">\(W/L = 10\mu m/ 0.15\mu m\)</span>. A detailed discussion of short-channel devices will be presented in a subsequent article.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-shortch">
 <div id="fig-shortch" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">

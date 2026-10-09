@@ -18,7 +18,7 @@
     "href": "articles/index.html",
     "title": "Articles",
     "section": "",
-    "text": "Latest Articles:\n\n\n\n\n\n\n\n\n\nMOSFET Small-Signal Characteristics\n\n\n\nBasics\n\n\n\nOverview small-signal behavior of MOSFET using Ngspice in SK130 open-source PDK\n\n\n\n\n\nOct 3, 2026\n\n\n2\n\n\n\n\n\n\n\nIntroduction to Analog Circuit Design\n\n\n\nBasics\n\n\n\nDesign Prerequisites, Tools, …\n\n\n\n\n\nSep 29, 2026\n\n\n1\n\n\n\n\n\nNo matching items",
+    "text": "Latest Articles:\n\n\n\n\n\n\n\n\n\nMOSFET Small-Signal Characteristics\n\n\n\nBasics\n\n\n\nAn overview of MOSFET small-signal behavior using Ngspice and the open-source SkyWater SKY130 PDK\n\n\n\n\n\nOct 3, 2026\n\n\n2\n\n\n\n\n\n\n\nIntroduction to Analog Circuit Design\n\n\n\nBasics\n\n\n\nDesign Prerequisites, Tools, …\n\n\n\n\n\nSep 29, 2026\n\n\n1\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Articles"
     ]
@@ -49,7 +49,7 @@
     "href": "articles/article2.html",
     "title": "MOSFET Small-Signal Characteristics",
     "section": "",
-    "text": "We will extract the small-signal characteristics of MOSFETs using open-source and free available PDKs and CAD tools. The analysis is carried out using the SkyWater sky130 PDK, Xschem as the schematic capture tool, and Ngspice as the circuit simulator.\nAll tools (Xschem, Ngspice, and sky130 PDK) must be installed properly on a Linux system. In this overview, Ubuntu running under WSL is used. The installation procedure is discussed in a separate article.\nThe reader is assumed to have a basic understanding of MOSFET device physics and the fundamentals of MOSFET operation. Figure 1 illustrates the structure and symbols of NMOS and PMOS devices. In integrated-circuit design, each MOSFET has four terminals: gate (G), source (S), drain (D), and bulk (B). Modern CMOS technologies typically employ a p-type substrate; therefore, the bulk of all NMOS devices (except native devices) is tied to the substrate, i.e., GND or VSS. In contrast, PMOS devices are fabricated in isolated wells, allowing their bulks to be biased independently."
+    "text": "We will extract the small-signal characteristics of MOSFETs using freely available, open-source PDKs and CAD tools. The analysis is carried out using the SkyWater sky130 PDK, Xschem as the schematic capture tool, and Ngspice as the circuit simulator.\nAll tools (Xschem, Ngspice, and sky130 PDK) must be installed properly on a Linux system. In this overview, Ubuntu running under WSL is used. The installation procedure is discussed in a separate article.\nThe reader is assumed to have a basic understanding of MOSFET device physics and the fundamentals of MOSFET operation. Figure 1 illustrates the structure and symbols of NMOS and PMOS devices. In integrated-circuit design, a MOSFET has four terminals: gate (G), source (S), drain (D), and bulk (B). Modern CMOS technologies typically employ a p-type substrate; therefore, the bulk of all NMOS devices (except native devices) is tied to the substrate, i.e., GND or VSS. In contrast, PMOS devices are fabricated in isolated wells, allowing their bulks to be biased independently."
   },
   {
     "objectID": "articles/article2.html#triode-region-on",
@@ -63,7 +63,7 @@
     "href": "articles/article2.html#saturation-region",
     "title": "MOSFET Small-Signal Characteristics",
     "section": "Saturation region:",
-    "text": "Saturation region:\nConsidering channel length modulation, the mosfet current is:\n\\[\nI_D=\\frac{1}{2}\\mu_nC_{ox}\\frac{W}{L}\\left(V_{GS}-V_{TH}\\right)^2(1+\\lambda\\ V_{DS})\n\\tag{3}\\]\nThe parameter λ is the channel-length modulation coefficient, which decreases with increasing channel length.\n\\[\n\\lambda\\propto\\frac{1}{L}\n\\tag{4}\\]"
+    "text": "Saturation region:\nIncluding channel length modulation, the mosfet current is given by:\n\\[\nI_D=\\frac{1}{2}\\mu_nC_{ox}\\frac{W}{L}\\left(V_{GS}-V_{TH}\\right)^2(1+\\lambda\\ V_{DS})\n\\tag{3}\\]\nThe parameter \\(\\lambda\\) is the channel-length modulation coefficient, which decreases with increasing channel length.\n\\[\n\\lambda\\propto\\frac{1}{L}\n\\tag{4}\\]"
   },
   {
     "objectID": "articles/article2.html#body-effect",
@@ -77,7 +77,7 @@
     "href": "articles/article2.html#subthreshold-weak-inversion",
     "title": "MOSFET Small-Signal Characteristics",
     "section": "Subthreshold (weak inversion):",
-    "text": "Subthreshold (weak inversion):\nWhen \\(V_{GS} \\approx V_{TH}\\), the device enters weak inversion, and the drain current follows:\n\\[\nI_D=I_0\\exp{\\frac{V_{GS}}{\\xi V_T}}\n\\tag{8}\\]\nwhere \\(I_0\\) is proportional to \\(W/L\\), \\(\\xi &gt; 1\\), and \\(V_T=kT/q\\). We say the device operates in ‘weak inversion’ in contrast with ‘strong inversion’."
+    "text": "Subthreshold (weak inversion):\nWhen \\(V_{GS} \\approx V_{TH}\\), the device enters weak inversion, and the drain current follows:\n\\[\nI_D=I_0\\exp{\\frac{V_{GS}}{\\xi V_T}}\n\\tag{8}\\]\nwhere \\(I_0\\) is proportional to \\(W/L\\), \\(\\xi &gt; 1\\), and \\(V_T=kT/q\\). The device is said to operate in weak inversion, as opposed to strong inversion."
   },
   {
     "objectID": "articles/article2.html#equations",
@@ -91,21 +91,21 @@
     "href": "articles/article2.html#long-channel-nmos",
     "title": "MOSFET Small-Signal Characteristics",
     "section": "Long-channel NMOS:",
-    "text": "Long-channel NMOS:\nThe circuit in Figure 3 is used to evaluate the small-signal, low frequency behavior of an NMOS device. Because capacitances are not considered in this section, DC-sweep analysis is employed.\n\n\n\n\n\n\nFigure 3: Simple NMOS circuit used for DC-sweep analysis\n\n\n\nHere, the W/L is 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep is from 0 to 1.8V. Figure 4 shows gm and gds of the NMOS versus VGS.\n\n\n\n\n\n\n\n\n\n\n\n\n(a) \\(g_m\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n(b) \\(g_{ds}\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\nFigure 4: Variation of \\(g_m\\) and \\(g_{ds}\\) versus \\(V_{GS}\\) for \\(V_{DS}=1V\\).\n\n\n\n\nIn this circuit, \\(V_{TH}\\) ≈ 470mV. As expected, by increasing \\(V_{GS}\\), both \\(g_m\\) and \\(g_{ds}\\) increase. It’s interesting to see the gds – Id relationship as shown in Figure 5. The curve is nearly linear, and according to Equation 15, its slope is corresponds to the channel-length modulation coefficient \\(\\lambda\\).\n\n\n\n\n\n\n\n\n\nFigure 5: Variation of \\(g_{ds}\\) versus Drain current \\(I_d\\) for \\(V_{DS}=1.8V\\).\n\n\n\n\n\n\nThe intrinsic small-signal gain of a MOSFET is defined as\n\\[\nA_v = g_mr_o = \\frac{g_m}{g_{ds}}\n\\tag{17}\\]\nThe intrinsic gain of an long-channel NMOS is shown in Figure 6. As can be seen, in saturation region, the gain peaks at around \\(V_{GS}=0.56V\\) that means with overdrive voltage of \\(V_{ov}=V_{GS}-V_{TH}\\approx 100mV\\), the device reachs its maximum intrinsic gain, and then, as overdrive voltage \\(V_{ov}\\) increases, the intrinsic gain drops.\n\n\n\n\n\n\n\n\n\nFigure 6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u/1.5u.\n\n\n\n\n\n\nFor \\(V_{ov}\\) below roughly 80mV the device is in ‘weak inversion’ region. When \\(V_{GS}&lt;V_{TH}\\), the transistor is off and intrinsic gain does not make sense."
+    "text": "Long-channel NMOS:\nThe circuit in Figure 3 is used to evaluate the small-signal, low frequency behavior of an NMOS device. Because capacitances are not considered in this section, DC-sweep analysis is employed.\n\n\n\n\n\n\nFigure 3: Simple NMOS circuit used for DC-sweep analysis\n\n\n\nHere, W/L = 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep ranges from 0 to 1.8V. Figure 4 shows gm and gds of the NMOS versus VGS.\n\n\n\n\n\n\n\n\n\n\n\n\n(a) \\(g_m\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n(b) \\(g_{ds}\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\nFigure 4: Variation of \\(g_m\\) and \\(g_{ds}\\) versus \\(V_{GS}\\) for \\(V_{DS}=1V\\).\n\n\n\n\nIn this circuit, \\(V_{TH} \\approx 470mV\\). As \\(V_{GS}\\) increases, both \\(g_m\\) and \\(g_{ds}\\) increase as expected. It’s interesting to see the gds – Id relationship as shown in Figure 5. The curve is nearly linear, and according to Equation 15, its slope corresponds to the channel-length modulation coefficient \\(\\lambda\\).\n\n\n\n\n\n\n\n\n\nFigure 5: Variation of \\(g_{ds}\\) versus Drain current \\(I_d\\) for \\(V_{DS}=1.8V\\).\n\n\n\n\n\n\nThe intrinsic small-signal gain of a MOSFET is defined as\n\\[\nA_v = g_mr_o = \\frac{g_m}{g_{ds}}\n\\tag{17}\\]\nThe intrinsic gain of a long-channel NMOS transistor is shown in Figure 6. As can be seen, in saturation region, the gain peaks at approximately \\(V_{GS}=0.56V\\). This corresponds to an overdrive voltage of \\(V_{ov}=V_{GS}-V_{TH}\\approx 100mV\\), at which the device achieves its maximum intrinsic gain. As \\(V_{ov}\\) increases further, the intrinsic gain decreases.\n\n\n\n\n\n\n\n\n\nFigure 6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u/1.5u.\n\n\n\n\n\n\nFor \\(V_{ov}\\) below roughly 80mV the device operates in the weak-inversion region. When \\(V_{GS}&lt;V_{TH}\\), the transistor is off and the concept of intrinsic gain is no longer meaningful."
   },
   {
     "objectID": "articles/article2.html#short-channel-nmos",
     "href": "articles/article2.html#short-channel-nmos",
     "title": "MOSFET Small-Signal Characteristics",
     "section": "Short-channel NMOS:",
-    "text": "Short-channel NMOS:\nFor channel length below 1 um (sub-micron), the MOS device behavior is significantly affected by short-channel and higher-order effects. Figure 7 illustrates how these phenomena alter the small-signal parameters for a device with \\(W/L = 10\\mu / 0.15\\mu\\). Detailed discussion of short-channel devices will be provided in a subsequent article.\n\n\n\n\n\n\n\n\n\n\n\n\n(a) \\(g_m\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n(b) \\(g_{ds}\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) \\(g_m/g_{ds}\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n(d) \\(g_{ds}\\) versus \\(I_d\\)\n\n\n\n\n\n\n\nFigure 7: Variation of small-signal parameters versus \\(V_{GS}\\) for short-channel NMOS where \\(W=10 \\mu m\\) and \\(L=0.15 \\mu m\\)."
+    "text": "Short-channel NMOS:\nFor channel length below \\(1\\mu m\\) (submicron), MOSFET behavior is significantly affected by short-channel and other higher-order effects. Figure 7 illustrates how these effects alter the small-signal parameters of a device with \\(W/L = 10\\mu m/ 0.15\\mu m\\). A detailed discussion of short-channel devices will be presented in a subsequent article.\n\n\n\n\n\n\n\n\n\n\n\n\n(a) \\(g_m\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n(b) \\(g_{ds}\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) \\(g_m/g_{ds}\\) versus \\(V_{GS}\\)\n\n\n\n\n\n\n\n\n\n\n\n(d) \\(g_{ds}\\) versus \\(I_d\\)\n\n\n\n\n\n\n\nFigure 7: Variation of small-signal parameters versus \\(V_{GS}\\) for short-channel NMOS where \\(W=10 \\mu m\\) and \\(L=0.15 \\mu m\\)."
   },
   {
     "objectID": "articles/basics.html",
     "href": "articles/basics.html",
     "title": "Basics",
     "section": "",
-    "text": "List of Articles in category Basics:\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDescription\n\n\n\nDate\n\n\n\nindex\n\n\n\n\n\n\n\n\nIntroduction to Analog Circuit Design\n\n\nDesign Prerequisites, Tools, …\n\n\nSep 29, 2026\n\n\n1\n\n\n\n\n\n\nMOSFET Small-Signal Characteristics\n\n\nOverview small-signal behavior of MOSFET using Ngspice in SK130 open-source PDK\n\n\nOct 3, 2026\n\n\n2\n\n\n\n\n\n\nNo matching items",
+    "text": "List of Articles in category Basics:\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDescription\n\n\n\nDate\n\n\n\nindex\n\n\n\n\n\n\n\n\nIntroduction to Analog Circuit Design\n\n\nDesign Prerequisites, Tools, …\n\n\nSep 29, 2026\n\n\n1\n\n\n\n\n\n\nMOSFET Small-Signal Characteristics\n\n\nAn overview of MOSFET small-signal behavior using Ngspice and the open-source SkyWater SKY130 PDK\n\n\nOct 3, 2026\n\n\n2\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Articles",
       "Basics"
