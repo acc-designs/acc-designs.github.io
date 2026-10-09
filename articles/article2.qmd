@@ -9,9 +9,6 @@ docindex: 2
 bibliography: references.bib
 csl: ieee.csl
 notebook-view: false
-format: 
-  html: default
-  pdf: default
 ---
 
 We will extract the small-signal characteristics of MOSFETs using freely available, open-source PDKs and CAD tools. The analysis is carried out using the SkyWater **sky130** PDK, **Xschem** as the schematic capture tool, and **Ngspice** as the circuit simulator.
