@@ -19,7 +19,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
       
       - name: Install TinyTeX
-        uses: quarto-dev/quarto-actions/setup-tinytex@v2
+        uses: quarto install TinyTex
 
       - name: Setup Python
         uses: actions/setup-python@v6
