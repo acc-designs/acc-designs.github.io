@@ -1,7 +1,6 @@
 ---
 title: "Articles"
 
-
 listing:
   contents: "article*.qmd"
   type: default
@@ -17,3 +16,4 @@ listing:
 
 ---
 
+Latest Articles:
