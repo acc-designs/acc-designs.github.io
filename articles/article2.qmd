@@ -1,6 +1,6 @@
 ---
 title: "MOSFET Small-Signal Characteristics"
-description: "Overview small-signal behavior of MOSFET using Ngspice in SK130 open-source PDK"
+description: "An overview of MOSFET small-signal behavior using Ngspice and the open-source SkyWater SKY130 PDK"
 author: "Amin Chegeni"
 date: 2026-10-03
 categories:
@@ -11,11 +11,11 @@ csl: ieee.csl
 notebook-view: false
 ---
 
-We will extract the small-signal characteristics of MOSFETs using open-source and free available PDKs and CAD tools. The analysis is carried out using the SkyWater **sky130** PDK, **Xschem** as the schematic capture tool, and **Ngspice** as the circuit simulator.
+We will extract the small-signal characteristics of MOSFETs using freely available, open-source PDKs and CAD tools. The analysis is carried out using the SkyWater **sky130** PDK, **Xschem** as the schematic capture tool, and **Ngspice** as the circuit simulator.
 
 All tools (Xschem, Ngspice, and sky130 PDK) must be installed properly on a Linux system. In this overview, Ubuntu running under WSL is used. The installation procedure is discussed in a separate article.
 
-The reader is assumed to have a basic understanding of MOSFET device physics and the fundamentals of MOSFET operation. @fig-mosfet illustrates the structure and symbols of NMOS and PMOS devices. In integrated-circuit design, each MOSFET has four terminals: gate (G), source (S), drain (D), and bulk (B). Modern CMOS technologies typically employ a p-type substrate; therefore, the bulk of all NMOS devices (except native devices) is tied to the substrate, i.e., GND or VSS. In contrast, PMOS devices are fabricated in isolated wells, allowing their bulks to be biased independently.
+The reader is assumed to have a basic understanding of MOSFET device physics and the fundamentals of MOSFET operation. @fig-mosfet illustrates the structure and symbols of NMOS and PMOS devices. In integrated-circuit design, a MOSFET has four terminals: gate (G), source (S), drain (D), and bulk (B). Modern CMOS technologies typically employ a p-type substrate; therefore, the bulk of all NMOS devices (except native devices) is tied to the substrate, i.e., GND or VSS. In contrast, PMOS devices are fabricated in isolated wells, allowing their bulks to be biased independently.
 
 ![(a) structure of NMOS and PMOS, (b) symbols (from @designo)](media/article2/image1.png){#fig-mosfet}
 
@@ -47,13 +47,13 @@ $$ {#eq-IdTriode2}
 
 ## Saturation region:
 
-Considering channel length modulation, the mosfet current is:
+Including channel length modulation, the mosfet current is given by:
 
 $$
 I_D=\frac{1}{2}\mu_nC_{ox}\frac{W}{L}\left(V_{GS}-V_{TH}\right)^2(1+\lambda\ V_{DS})
 $$ {#eq-IdSat}
 
-The parameter λ is the channel-length modulation coefficient, which decreases with increasing channel length.
+The parameter $\lambda$ is the channel-length modulation coefficient, which decreases with increasing channel length.
 
 $$
 \lambda\propto\frac{1}{L}
@@ -85,11 +85,11 @@ $$
 I_D=I_0\exp{\frac{V_{GS}}{\xi V_T}}
 $$ {#eq-IdWeak}
 
-where $I_0$ is proportional to $W/L$, $\xi > 1$, and $V_T=kT/q$. We say the device operates in 'weak inversion' in contrast with 'strong inversion'.
+where $I_0$ is proportional to $W/L$, $\xi > 1$, and $V_T=kT/q$. The device is said to operate in *weak inversion*, as opposed to *strong inversion*.
 
 # Small-signal model:
 
-@fig-mosmodel shows the small-signal model of NMOS @designo. The reader can extract the model of PMOS as well.
+@fig-mosmodel shows the small-signal model of NMOS @designo. The corresponding small-signal model for a PMOS transistor can be derived in the same way.
 
 ![(a) Basic MOS small-signal model; (b) channel-length modulation represented by a dependent current source; (c) channel-length modulation represented by a resistor; (d) body effect represented by a dependent current source.](media/article2/image2.png){#fig-mosmodel}
 
@@ -147,11 +147,11 @@ The circuit in @fig-sch_DC_sweep is used to evaluate the small-signal, low frequ
 
 ![Simple NMOS circuit used for DC-sweep analysis](media/article2/image3.png){#fig-sch_DC_sweep width="50%"}
 
-Here, the W/L is 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep is from 0 to 1.8V. @fig-gmgds-vgs shows gm and gds of the NMOS versus VGS.
+Here, W/L = 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep ranges from 0 to 1.8V. @fig-gmgds-vgs shows gm and gds of the NMOS versus VGS.
 
 {{< embed /data/nmos_plots.ipynb#fig-gmgds-vgs >}}
 
-In this circuit, $V_{TH}$ ≈ 470mV. As expected, by increasing $V_{GS}$, both $g_m$ and $g_{ds}$ increase. It’s interesting to see the gds – Id relationship as shown in @fig-gds-id. The curve is nearly linear, and according to @eq-rout2, its slope is corresponds to the channel-length modulation coefficient $\lambda$.
+In this circuit, $V_{TH} \approx 470mV$. As $V_{GS}$ increases, both $g_m$ and $g_{ds}$ increase as expected. It’s interesting to see the gds – Id relationship as shown in @fig-gds-id. The curve is nearly linear, and according to @eq-rout2, its slope corresponds to the channel-length modulation coefficient $\lambda$.
 
 {{< embed /data/nmos_plots.ipynb#fig-gds-id >}}
 
@@ -161,15 +161,15 @@ $$
 A_v = g_mr_o = \frac{g_m}{g_{ds}}
 $$ {#eq-fetgain}
 
-The intrinsic gain of an long-channel NMOS is shown in @fig-gm_gds-vgs. As can be seen, in saturation region, the gain peaks at around $V_{GS}=0.56V$ that means with overdrive voltage of $V_{ov}=V_{GS}-V_{TH}\approx 100mV$, the device reachs its maximum intrinsic gain, and then, as overdrive voltage $V_{ov}$ increases, the intrinsic gain drops.
+The intrinsic gain of a long-channel NMOS transistor is shown in @fig-gm_gds-vgs. As can be seen, in saturation region, the gain peaks at approximately $V_{GS}=0.56V$. This corresponds to an overdrive voltage of $V_{ov}=V_{GS}-V_{TH}\approx 100mV$, at which the device achieves its maximum intrinsic gain. As $V_{ov}$ increases further, the intrinsic gain decreases.
 
 {{< embed /data/nmos_plots.ipynb#fig-gm_gds-vgs >}}
 
-For $V_{ov}$ below roughly 80mV the device is in 'weak inversion' region. When $V_{GS}<V_{TH}$, the transistor is off and intrinsic gain does not make sense.
+For $V_{ov}$ below roughly 80mV the device operates in the *weak-inversion* region. When $V_{GS}<V_{TH}$, the transistor is off and the concept of intrinsic gain is no longer meaningful.
 
 ## Short-channel NMOS:
 
-For channel length below 1 um (sub-micron), the MOS device behavior is significantly affected by short-channel and higher-order effects. @fig-shortch illustrates how these phenomena alter the small-signal parameters for a device with $W/L = 10\mu / 0.15\mu$. Detailed discussion of short-channel devices will be provided in a subsequent article.
+For channel length below $1\mu m$ (submicron), MOSFET behavior is significantly affected by short-channel and other higher-order effects. @fig-shortch illustrates how these effects alter the small-signal parameters of a device with $W/L = 10\mu m/ 0.15\mu m$. A detailed discussion of short-channel devices will be presented in a subsequent article.
 
 {{< embed /data/nmos_plots.ipynb#fig-shortch >}}
 
