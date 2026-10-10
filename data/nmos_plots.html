@@ -291,7 +291,7 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>target_vds <span class="op">=</span> <span class="fl">1.8</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(vds <span class="op">-</span> target_vds))</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>plt.plot(var2.T[:, idx], var1.T[:, idx] <span class="op">*</span> <span class="dv">1000</span>)</span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="ss">f"VDS = </span><span class="sc">{</span>vds[idx]<span class="sc">:.2f}</span><span class="ss"> V"</span>])</span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
@@ -305,7 +305,7 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> raw.get_trace(short_names[<span class="st">"gds"</span>]).get_wave()</span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> np.reshape(var1, (<span class="bu">len</span>(v_sweep), <span class="op">-</span><span class="dv">1</span>), order<span class="op">=</span><span class="st">'F'</span>)</span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>plt.plot(var2.T[:, idx], var1.T[:, idx] <span class="op">*</span> <span class="dv">1000</span>)</span>
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="ss">f"VDS = </span><span class="sc">{</span>vds[idx]<span class="sc">:.2f}</span><span class="ss"> V"</span>])</span>
 <span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
@@ -323,7 +323,7 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 <div id="fig-gmgds-vgs-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-gmgds-vgs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-1.png" data-ref-parent="fig-gmgds-vgs" width="471" height="374" class="figure-img">
+<img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-1.png" data-ref-parent="fig-gmgds-vgs" width="472" height="278" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-gmgds-vgs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) <span class="math inline">\(g_m\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -335,7 +335,7 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 <div id="fig-gmgds-vgs-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-2.png" data-ref-parent="fig-gmgds-vgs" width="472" height="374" class="figure-img">
+<img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-2.png" data-ref-parent="fig-gmgds-vgs" width="472" height="278" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span>
