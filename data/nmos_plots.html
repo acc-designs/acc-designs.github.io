@@ -81,6 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-d779191fb58665fba6013d76b5d4c7b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -185,9 +188,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="nmos_plots.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
@@ -238,7 +241,7 @@ window.Quarto = {
 <div id="fig-id-vds" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-id-vds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-id-vds-output-1.png" width="663" height="470" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-id-vds-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Drain current I_D versus drain-source voltage V_{DS} for different V_{GS} values."><img src="nmos_plots_files/figure-html/fig-id-vds-output-1.png" width="663" height="470" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-id-vds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Drain current <span class="math inline">\(I_D\)</span> versus drain-source voltage <span class="math inline">\(V_{DS}\)</span> for different <span class="math inline">\(V_{GS}\)</span> values.
@@ -266,7 +269,7 @@ Figure&nbsp;1: Drain current <span class="math inline">\(I_D\)</span> versus dra
 <div id="fig-id-vds-0.8" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-id-vds-0.8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-id-vds-0.8-output-1.png" width="663" height="470" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-id-vds-0.8-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Drain current I_D versus drain-source voltage V_{DS} for V_{GS}=0.8."><img src="nmos_plots_files/figure-html/fig-id-vds-0.8-output-1.png" width="663" height="470" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-id-vds-0.8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus drain-source voltage <span class="math inline">\(V_{DS}\)</span> for <span class="math inline">\(V_{GS}=0.8\)</span>.
@@ -275,6 +278,7 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 </div>
 </div>
 </div>
+<div class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> raw.get_trace(short_names[<span class="st">"gm"</span>]).get_wave()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="op">=</span> raw.get_trace(short_names[<span class="st">"vgs"</span>]).get_wave()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>var3 <span class="op">=</span> raw.get_trace(short_names[<span class="st">"vds"</span>]).get_wave()</span>
@@ -315,15 +319,14 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="fig-gmgds-vgs" class="quarto-layout-panel">
+<div id="fig-gmgds-vgs" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gmgds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-gmgds-vgs" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
 <div id="fig-gmgds-vgs-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-gmgds-vgs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-1.png" data-ref-parent="fig-gmgds-vgs" width="472" height="278" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-gmgds-vgs-output-1.png" class="lightbox" data-gallery="fig-gmgds-vgs" title="Figure&nbsp;3&nbsp;(a): g_m versus V_{GS}"><img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-1.png" data-ref-parent="fig-gmgds-vgs" width="472" height="278" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-gmgds-vgs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) <span class="math inline">\(g_m\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -331,11 +334,11 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-gmgds-vgs" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
 <div id="fig-gmgds-vgs-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-2.png" data-ref-parent="fig-gmgds-vgs" width="472" height="278" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-gmgds-vgs-output-2.png" class="lightbox" data-gallery="fig-gmgds-vgs" title="Figure&nbsp;3&nbsp;(b): g_{ds} versus V_{GS}"><img src="nmos_plots_files/figure-html/fig-gmgds-vgs-output-2.png" data-ref-parent="fig-gmgds-vgs" width="472" height="278" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -344,11 +347,11 @@ Figure&nbsp;2: Drain current <span class="math inline">\(I_D\)</span> versus dra
 </div>
 </div>
 </div>
-</div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gmgds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Variation of <span class="math inline">\(g_m\)</span> and <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span> for <span class="math inline">\(V_{DS}=1V\)</span>.
 </figcaption>
 </figure>
+</div>
 </div>
 <div id="cell-fig-gds-id" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> raw.get_trace(short_names[<span class="st">"gds"</span>]).get_wave()</span>
@@ -374,7 +377,7 @@ Figure&nbsp;3: Variation of <span class="math inline">\(g_m\)</span> and <span c
 <div id="fig-gds-id" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gds-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-gds-id-output-1.png" width="664" height="470" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-gds-id-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;4: Variation of g_{ds} versus Drain current I_d for V_{DS}=1.8V."><img src="nmos_plots_files/figure-html/fig-gds-id-output-1.png" width="664" height="470" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gds-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Variation of <span class="math inline">\(g_{ds}\)</span> versus Drain current <span class="math inline">\(I_d\)</span> for <span class="math inline">\(V_{DS}=1.8V\)</span>.
@@ -426,7 +429,7 @@ Figure&nbsp;4: Variation of <span class="math inline">\(g_{ds}\)</span> versus D
 <div id="fig-gm_gds-vgs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gm_gds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-gm_gds-vgs-output-1.png" width="663" height="470" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-gm_gds-vgs-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;5: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u/1.5u."><img src="nmos_plots_files/figure-html/fig-gm_gds-vgs-output-1.png" width="663" height="470" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gm_gds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u/1.5u.
@@ -435,6 +438,7 @@ Figure&nbsp;5: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </div>
 </div>
 </div>
+<div class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>raw <span class="op">=</span> RawRead(<span class="st">"./ngspice/NMOS_sc.raw"</span>, dialect<span class="op">=</span><span class="st">"ngspice"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>par_names <span class="op">=</span> raw.get_trace_names()</span>
@@ -502,15 +506,14 @@ Figure&nbsp;5: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 <span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="fig-shortch" class="quarto-layout-panel">
+<div id="fig-shortch" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="6">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-shortch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-shortch" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
 <div id="fig-shortch-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-shortch-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-shortch-output-1.png" data-ref-parent="fig-shortch" width="470" height="278" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-shortch-output-1.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;6&nbsp;(a): g_m versus V_{GS}"><img src="nmos_plots_files/figure-html/fig-shortch-output-1.png" data-ref-parent="fig-shortch" width="470" height="278" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-shortch-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) <span class="math inline">\(g_m\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -518,11 +521,11 @@ Figure&nbsp;5: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-shortch" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
 <div id="fig-shortch-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-shortch-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-shortch-output-2.png" data-ref-parent="fig-shortch" width="471" height="278" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-shortch-output-2.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;6&nbsp;(b): g_{ds} versus V_{GS}"><img src="nmos_plots_files/figure-html/fig-shortch-output-2.png" data-ref-parent="fig-shortch" width="471" height="278" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-shortch-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -530,13 +533,11 @@ Figure&nbsp;5: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </figure>
 </div>
 </div>
-</div>
-<div class="quarto-layout-row">
-<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-shortch" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
 <div id="fig-shortch-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-shortch-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-shortch-output-3.png" data-ref-parent="fig-shortch" width="471" height="278" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-shortch-output-3.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;6&nbsp;(c): g_m/g_{ds} versus V_{GS}"><img src="nmos_plots_files/figure-html/fig-shortch-output-3.png" data-ref-parent="fig-shortch" width="471" height="278" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-shortch-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) <span class="math inline">\(g_m/g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -544,11 +545,11 @@ Figure&nbsp;5: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-shortch" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
 <div id="fig-shortch-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-shortch-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="nmos_plots_files/figure-html/fig-shortch-output-4.png" data-ref-parent="fig-shortch" width="471" height="278" class="figure-img">
+<a href="nmos_plots_files/figure-html/fig-shortch-output-4.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;6&nbsp;(d): g_{ds} versus I_d"><img src="nmos_plots_files/figure-html/fig-shortch-output-4.png" data-ref-parent="fig-shortch" width="471" height="278" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-shortch-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (d) <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(I_d\)</span>
@@ -557,11 +558,11 @@ Figure&nbsp;5: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </div>
 </div>
 </div>
-</div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shortch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: Variation of small-signal parameters versus <span class="math inline">\(V_{GS}\)</span> for short-channel NMOS where <span class="math inline">\(W=10 \mu m\)</span> and <span class="math inline">\(L=0.15 \mu m\)</span>.
 </figcaption>
 </figure>
+</div>
 </div>
 
 
@@ -968,6 +969,38 @@ Figure&nbsp;6: Variation of small-signal parameters versus <span class="math inl
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
