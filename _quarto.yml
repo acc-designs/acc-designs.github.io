@@ -35,7 +35,8 @@ format:
       - cosmo
     css: styles.css
     toc: true
-  pdf: default
+  pdf:
+    documentclass: article
 
 execute: 
   freeze: false
