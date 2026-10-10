@@ -153,11 +153,11 @@ The circuit in @fig-sch_DC_sweep is used to evaluate the small-signal, low frequ
 
 Here, W/L = 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep ranges from 0 to 1.8V. @fig-gmgds-vgs shows gm and gds of the NMOS versus VGS.
 
-{{< embed /data/nmos_plots.ipynb#fig-gmgds-vgs >}}
+{{< embed /data/notebooks/nmos_plots.ipynb#fig-gmgds-vgs >}}
 
 In this circuit, $V_{TH} \approx 470mV$. As $V_{GS}$ increases, both $g_m$ and $g_{ds}$ increase as expected. It’s interesting to see the gds – Id relationship as shown in @fig-gds-id. The curve is nearly linear, and according to @eq-rout2, its slope corresponds to the channel-length modulation coefficient $\lambda$.
 
-{{< embed /data/nmos_plots.ipynb#fig-gds-id >}}
+{{< embed /data/notebooks/nmos_plots.ipynb#fig-gds-id >}}
 
 The intrinsic small-signal gain of a MOSFET is defined as
 
@@ -167,7 +167,7 @@ $$ {#eq-fetgain}
 
 The intrinsic gain of a long-channel NMOS transistor is shown in @fig-gm_gds-vgs. As can be seen, in saturation region, the gain peaks at approximately $V_{GS}=0.56V$. This corresponds to an overdrive voltage of $V_{ov}=V_{GS}-V_{TH}\approx 100mV$, at which the device achieves its maximum intrinsic gain. As $V_{ov}$ increases further, the intrinsic gain decreases.
 
-{{< embed /data/nmos_plots.ipynb#fig-gm_gds-vgs >}}
+{{< embed /data/notebooks/nmos_plots.ipynb#fig-gm_gds-vgs >}}
 
 For $V_{ov}$ below roughly 80mV the device operates in the *weak-inversion* region. When $V_{GS}<V_{TH}$, the transistor is off and the concept of intrinsic gain is no longer meaningful.
 
@@ -175,5 +175,5 @@ For $V_{ov}$ below roughly 80mV the device operates in the *weak-inversion* regi
 
 For channel length below $1\mu m$ (submicron), MOSFET behavior is significantly affected by short-channel and other higher-order effects. @fig-shortch illustrates how these effects alter the small-signal parameters of a device with $W/L = 10\mu m/ 0.15\mu m$. A detailed discussion of short-channel devices will be presented in a subsequent article.
 
-{{< embed /data/nmos_plots.ipynb#fig-shortch >}}
+{{< embed /data/notebooks/nmos_plots.ipynb#fig-shortch >}}
 
