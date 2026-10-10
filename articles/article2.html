@@ -202,7 +202,7 @@ window.Quarto = {
   <li><a href="#short-channel-nmos" id="toc-short-channel-nmos" class="nav-link" data-scroll-target="#short-channel-nmos">Short-channel NMOS:</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="article2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -382,15 +382,15 @@ Figure&nbsp;3: Simple NMOS circuit used for DC-sweep analysis
 </div>
 <p>Here, W/L = 100u/1.5u, number of gates (fingers) are 10, and the VGS sweep ranges from 0 to 1.8V. <a href="#fig-gmgds-vgs" class="quarto-xref">Figure&nbsp;4</a> shows gm and gds of the NMOS versus VGS.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-gmgds-vgs">
-<div class="cell" data-execution_count="3">
-<div id="fig-gmgds-vgs" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3">
+<div id="fig-gmgds-vgs" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gmgds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-gmgds-vgs" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-gmgds-vgs-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-gmgds-vgs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-1.png" class="lightbox" data-gallery="fig-gmgds-vgs" title="Figure&nbsp;4&nbsp;(a): g_m versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-1.png" data-ref-parent="fig-gmgds-vgs" width="472" height="278" class="figure-img"></a>
+<a href="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-1.png" class="lightbox" data-gallery="fig-gmgds-vgs" title="Figure&nbsp;4&nbsp;(a): g_m versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-gmgds-vgs"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-gmgds-vgs-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) <span class="math inline">\(g_m\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -398,16 +398,17 @@ Figure&nbsp;3: Simple NMOS circuit used for DC-sweep analysis
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-gmgds-vgs" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-gmgds-vgs-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-2.png" class="lightbox" data-gallery="fig-gmgds-vgs" title="Figure&nbsp;4&nbsp;(b): g_{ds} versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-2.png" data-ref-parent="fig-gmgds-vgs" width="472" height="278" class="figure-img"></a>
+<a href="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-2.png" class="lightbox" data-gallery="fig-gmgds-vgs" title="Figure&nbsp;4&nbsp;(b): g_{ds} versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-gmgds-vgs-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-gmgds-vgs"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-gmgds-vgs-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span>
 </figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -417,15 +418,14 @@ Figure&nbsp;4: Variation of <span class="math inline">\(g_m\)</span> and <span c
 </figure>
 </div>
 </div>
-</div>
 <p>In this circuit, <span class="math inline">\(V_{TH} \approx 470mV\)</span>. As <span class="math inline">\(V_{GS}\)</span> increases, both <span class="math inline">\(g_m\)</span> and <span class="math inline">\(g_{ds}\)</span> increase as expected. It’s interesting to see the gds – Id relationship as shown in <a href="#fig-gds-id" class="quarto-xref">Figure&nbsp;5</a>. The curve is nearly linear, and according to <a href="#eq-rout2" class="quarto-xref">Equation&nbsp;15</a>, its slope corresponds to the channel-length modulation coefficient <span class="math inline">\(\lambda\)</span>.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-gds-id">
-<div id="cell-fig-gds-id" class="cell" data-execution_count="4">
+<div id="cell-fig-gds-id" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div id="fig-gds-id" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gds-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="article2_files/figure-html/-data-nmos_plots-fig-gds-id-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;5: Variation of g_{ds} versus Drain current I_d for V_{DS}=1.8V."><img src="article2_files/figure-html/-data-nmos_plots-fig-gds-id-output-1.png" width="664" height="470" class="figure-img"></a>
+<a href="article2_files/figure-html/-data-nmos_plots-fig-gds-id-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;5: Variation of g_{ds} versus Drain current I_d for V_{DS}=1.8V."><img src="article2_files/figure-html/-data-nmos_plots-fig-gds-id-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gds-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: Variation of <span class="math inline">\(g_{ds}\)</span> versus Drain current <span class="math inline">\(I_d\)</span> for <span class="math inline">\(V_{DS}=1.8V\)</span>.
@@ -441,12 +441,12 @@ A_v = g_mr_o = \frac{g_m}{g_{ds}}
 \tag{17}\]</span></span></p>
 <p>The intrinsic gain of a long-channel NMOS transistor is shown in <a href="#fig-gm_gds-vgs" class="quarto-xref">Figure&nbsp;6</a>. As can be seen, in saturation region, the gain peaks at approximately <span class="math inline">\(V_{GS}=0.56V\)</span>. This corresponds to an overdrive voltage of <span class="math inline">\(V_{ov}=V_{GS}-V_{TH}\approx 100mV\)</span>, at which the device achieves its maximum intrinsic gain. As <span class="math inline">\(V_{ov}\)</span> increases further, the intrinsic gain decreases.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-gm_gds-vgs">
-<div id="cell-fig-gm_gds-vgs" class="cell" data-execution_count="5">
+<div id="cell-fig-gm_gds-vgs" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div id="fig-gm_gds-vgs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gm_gds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="article2_files/figure-html/-data-nmos_plots-fig-gm_gds-vgs-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u/1.5u."><img src="article2_files/figure-html/-data-nmos_plots-fig-gm_gds-vgs-output-1.png" width="663" height="470" class="figure-img"></a>
+<a href="article2_files/figure-html/-data-nmos_plots-fig-gm_gds-vgs-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u/1.5u."><img src="article2_files/figure-html/-data-nmos_plots-fig-gm_gds-vgs-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gm_gds-vgs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u/1.5u.
@@ -462,15 +462,15 @@ Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 <h2 class="anchored" data-anchor-id="short-channel-nmos">Short-channel NMOS:</h2>
 <p>For channel length below <span class="math inline">\(1\mu m\)</span> (submicron), MOSFET behavior is significantly affected by short-channel and other higher-order effects. <a href="#fig-shortch" class="quarto-xref">Figure&nbsp;7</a> illustrates how these effects alter the small-signal parameters of a device with <span class="math inline">\(W/L = 10\mu m/ 0.15\mu m\)</span>. A detailed discussion of short-channel devices will be presented in a subsequent article.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/acc-designs.github.io/acc-designs.github.io/data/nmos_plots.ipynb" data-notebook-cellid="cell-fig-shortch">
-<div class="cell" data-execution_count="6">
-<div id="fig-shortch" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="6">
+<div id="fig-shortch" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-shortch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-shortch" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-shortch-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-shortch-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-1.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;7&nbsp;(a): g_m versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-1.png" data-ref-parent="fig-shortch" width="470" height="278" class="figure-img"></a>
+<a href="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-1.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;7&nbsp;(a): g_m versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-shortch"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-shortch-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) <span class="math inline">\(g_m\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -478,11 +478,11 @@ Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-shortch" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-shortch-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-shortch-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-2.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;7&nbsp;(b): g_{ds} versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-2.png" data-ref-parent="fig-shortch" width="471" height="278" class="figure-img"></a>
+<a href="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-2.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;7&nbsp;(b): g_{ds} versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-shortch"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-shortch-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -490,11 +490,13 @@ Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display">
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-shortch" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-shortch-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-shortch-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-3.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;7&nbsp;(c): g_m/g_{ds} versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-3.png" data-ref-parent="fig-shortch" width="471" height="278" class="figure-img"></a>
+<a href="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-3.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;7&nbsp;(c): g_m/g_{ds} versus V_{GS}"><img src="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-shortch"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-shortch-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) <span class="math inline">\(g_m/g_{ds}\)</span> versus <span class="math inline">\(V_{GS}\)</span>
@@ -502,11 +504,11 @@ Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-shortch" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-shortch-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-shortch-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-4.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;7&nbsp;(d): g_{ds} versus I_d"><img src="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-4.png" data-ref-parent="fig-shortch" width="471" height="278" class="figure-img"></a>
+<a href="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-4.png" class="lightbox" data-gallery="fig-shortch" title="Figure&nbsp;7&nbsp;(d): g_{ds} versus I_d"><img src="article2_files/figure-html/-data-nmos_plots-fig-shortch-output-4.png" class="img-fluid figure-img" data-ref-parent="fig-shortch"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-shortch-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (d) <span class="math inline">\(g_{ds}\)</span> versus <span class="math inline">\(I_d\)</span>
@@ -515,11 +517,11 @@ Figure&nbsp;6: Intrinsic small-signal low-frequency gain of NMOS with W/L = 100u
 </div>
 </div>
 </div>
+</div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shortch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7: Variation of small-signal parameters versus <span class="math inline">\(V_{GS}\)</span> for short-channel NMOS where <span class="math inline">\(W=10 \mu m\)</span> and <span class="math inline">\(L=0.15 \mu m\)</span>.
 </figcaption>
 </figure>
-</div>
 </div>
 </div>
 
