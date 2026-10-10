@@ -36,6 +36,8 @@ format:
     css: styles.css
     toc: true
     lightbox: true
+  # pdf: 
+  #   documentclass: article
 
 execute: 
   freeze: false
