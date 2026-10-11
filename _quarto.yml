@@ -39,7 +39,3 @@ format:
   # pdf: 
   #   documentclass: article
 
-execute: 
-  freeze: false
-
-
