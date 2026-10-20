@@ -2,4 +2,4 @@
 **/*.quarto_ipynb
 /_site/
 /articles/articleTest.qmd
-/draft/
+/_draft/
