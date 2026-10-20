@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d779191fb58665fba6013d76b5d4c7b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-10f00cb94b0c9743891cac6ab367f5ba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -197,7 +197,7 @@ window.Quarto = {
 
 
 
-<div id="cell-fig-id-vds" class="cell" data-execution_count="1">
+<div id="cell-fig-id-vds" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PyLTSpice <span class="im">import</span> RawRead</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -250,7 +250,7 @@ Figure&nbsp;1: Drain current <span class="math inline">\(I_D\)</span> versus dra
 </div>
 </div>
 </div>
-<div id="cell-fig-id-vds-0.8" class="cell" data-execution_count="2">
+<div id="cell-fig-id-vds-0.8" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#target curve</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>target_vgs <span class="op">=</span> <span class="fl">0.8</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(vgs <span class="op">-</span> target_vgs))</span>
@@ -353,7 +353,7 @@ Figure&nbsp;3: Variation of <span class="math inline">\(g_m\)</span> and <span c
 </figcaption>
 </figure>
 </div>
-<div id="cell-fig-gds-id" class="cell" data-execution_count="4">
+<div id="cell-fig-gds-id" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> raw.get_trace(short_names[<span class="st">"gds"</span>]).get_wave()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> np.reshape(var1, (<span class="bu">len</span>(v_sweep), <span class="op">-</span><span class="dv">1</span>), order<span class="op">=</span><span class="st">'F'</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>var2 <span class="op">=</span> raw.get_trace(short_names[<span class="st">"id"</span>]).get_wave()</span>
@@ -386,7 +386,7 @@ Figure&nbsp;4: Variation of <span class="math inline">\(g_{ds}\)</span> versus D
 </div>
 </div>
 </div>
-<div id="cell-fig-gm_gds-vgs" class="cell" data-execution_count="5">
+<div id="cell-fig-gm_gds-vgs" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.interpolate <span class="im">import</span> PchipInterpolator</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> raw.get_trace(short_names[<span class="st">"gm"</span>]).get_wave()</span>
