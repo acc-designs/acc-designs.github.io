@@ -2,11 +2,13 @@ project:
   type: website
 
 website:
-  title: "ACC–R&D"
+  title: "ACC--R&D"
   navbar:
     left:
       - text: "Articles"
         href: articles/index.qmd
+      - text: "DesignFlow"
+        href: designflow/index.qmd
       # - text: "Projects"
       #   href: projects/index.qmd
       # - text: "Discrete"
@@ -23,6 +25,13 @@ website:
       contents: 
         - articles/index.qmd
         - articles/basics.qmd
+
+    - title: "DesignFlow"
+      contents:
+        - designflow/index.qmd
+        - auto: designflow/*designflow*.qmd
+
+
 
     # - title: "Projects"
     #   contents: 

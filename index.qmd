@@ -1,9 +1,9 @@
 ---
-title: "ACC-Designs R&D"
+title: "ACC--Designs R&D"
 ---
 
 # Welcome to ACC Designs R&D!
 
-This is my personal website dedicated to my work and activities in **Analog Custom Circuit Design**. It primarily covers **Analog and Mixed-Signal IC Design**, including topics such as data converters, RF circuits and blocks, various types of amplifiers, and more.
+This is my personal website about my work in **analog custom circuit design**. It primarily covers **analog and mixed-signal IC design**, including data converters, RF circuits and blocks, and various types of amplifiers.
 
-The website also covers selected topics in **discrete circuit design**, including basic analog circuit design, power electronics, and switching-mode power supplies (SMPS).
+It also covers selected topics in **discrete circuit design**, including basic analog circuit design, power electronics, and switch-mode power supplies (SMPS).
