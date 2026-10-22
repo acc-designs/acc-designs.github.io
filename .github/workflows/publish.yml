@@ -21,6 +21,11 @@ jobs:
       - name: Install TinyTeX
         run: quarto install TinyTex
 
+      - name: Install SVG converter
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes librsvg2-bin
+
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
