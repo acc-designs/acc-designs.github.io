@@ -2,38 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://acc-designs.github.io/index.html</loc>
-    <lastmod>2026-10-20T19:19:20.806Z</lastmod>
+    <lastmod>2026-10-22T12:41:54.084Z</lastmod>
   </url>
   <url>
     <loc>https://acc-designs.github.io/articles/index.html</loc>
-    <lastmod>2026-10-20T19:19:20.800Z</lastmod>
+    <lastmod>2026-10-22T12:41:54.079Z</lastmod>
   </url>
   <url>
     <loc>https://acc-designs.github.io/articles/article2.html</loc>
-    <lastmod>2026-10-20T19:19:20.800Z</lastmod>
+    <lastmod>2026-10-22T12:41:54.079Z</lastmod>
   </url>
   <url>
     <loc>https://acc-designs.github.io/data/notebooks/nmos_plots.html</loc>
-    <lastmod>2026-10-20T19:19:20.806Z</lastmod>
+    <lastmod>2026-10-22T12:41:54.082Z</lastmod>
+  </url>
+  <url>
+    <loc>https://acc-designs.github.io/designflow/index.html</loc>
+    <lastmod>2026-10-22T12:41:54.084Z</lastmod>
   </url>
   <url>
     <loc>https://acc-designs.github.io/projects/index.html</loc>
-    <lastmod>2026-10-20T19:19:20.806Z</lastmod>
+    <lastmod>2026-10-22T12:41:54.084Z</lastmod>
+  </url>
+  <url>
+    <loc>https://acc-designs.github.io/designflow/designflow1.html</loc>
+    <lastmod>2026-10-22T12:41:54.082Z</lastmod>
   </url>
   <url>
     <loc>https://acc-designs.github.io/about.html</loc>
-    <lastmod>2026-10-20T19:19:20.799Z</lastmod>
+    <lastmod>2026-10-22T12:41:54.079Z</lastmod>
   </url>
   <url>
     <loc>https://acc-designs.github.io/discrete/index.html</loc>
-    <lastmod>2026-10-20T19:19:20.806Z</lastmod>
+    <lastmod>2026-10-22T12:41:54.084Z</lastmod>
   </url>
   <url>
     <loc>https://acc-designs.github.io/articles/article1.html</loc>
-    <lastmod>2026-10-20T19:19:20.799Z</lastmod>
+    <lastmod>2026-10-22T12:41:54.079Z</lastmod>
   </url>
   <url>
     <loc>https://acc-designs.github.io/articles/basics.html</loc>
-    <lastmod>2026-10-20T19:19:20.800Z</lastmod>
+    <lastmod>2026-10-22T12:41:54.079Z</lastmod>
   </url>
 </urlset>
