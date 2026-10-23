@@ -7,7 +7,7 @@ format:
     html: default
     pdf: 
      documentclass: article
-     fig-pos: tb
+    #  fig-pos: tb
 ---
 
 Amplifiers are among the most important blocks in analog IC design, as they are used in a wide range of analog and mixed-signal circuits, including active filters, integrators, sensor interfaces, sample-and-hold circuits, and data converters. When combined with an appropriate feedback network, an op-amp can perform mathematical operations, amplify small signals, and provide accurate signal conditioning. Its performance therefore has a significant impact on the overall performance of the systems in which it is used.
