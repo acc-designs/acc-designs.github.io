@@ -33,28 +33,14 @@ jobs:
 
       - name: Install TinyTeX
         run: quarto install tinytex
-
+        
+      - name: Install Chrome Headless Shell
+        run: quarto install chrome-headless-shell --no-prompt
+        
       - name: Install SVG converter
         run: |
           sudo apt-get update
           sudo apt-get install --yes librsvg2-bin
-
-      - name: Install Chrome Headless Shell
-        run: |
-          BROWSER_DIR="$RUNNER_TEMP/puppeteer"
-          npx --yes @puppeteer/browsers install \
-            chrome-headless-shell@stable \
-            --path "$BROWSER_DIR"
-
-          SHELL_BIN="$(find "$BROWSER_DIR" \
-            -type f -name chrome-headless-shell -perm -111 | head -n 1)"
-
-          test -n "$SHELL_BIN"
-          echo "CHROME_HEADLESS_SHELL=$SHELL_BIN" >> "$GITHUB_ENV"
-
-          "$SHELL_BIN" --version
-          "$SHELL_BIN" --no-sandbox --disable-gpu \
-            --dump-dom https://example.com
 
       - name: Install Python packages
         run: |
