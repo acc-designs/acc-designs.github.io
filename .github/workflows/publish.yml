@@ -41,9 +41,12 @@ jobs:
 
       - name: Install Chrome Headless Shell
         run: |
-          npx --yes @puppeteer/browsers install chrome-headless-shell@stable
+          BROWSER_DIR="$RUNNER_TEMP/puppeteer"
+          npx --yes @puppeteer/browsers install \
+            chrome-headless-shell@stable \
+            --path "$BROWSER_DIR"
 
-          SHELL_BIN="$(find "$HOME/.cache/puppeteer" \
+          SHELL_BIN="$(find "$BROWSER_DIR" \
             -type f -name chrome-headless-shell -perm -111 | head -n 1)"
 
           test -n "$SHELL_BIN"
