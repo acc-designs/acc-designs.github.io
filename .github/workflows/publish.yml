@@ -52,7 +52,7 @@ jobs:
           "$SHELL_BIN" --version
           "$SHELL_BIN" --no-sandbox --disable-gpu \
             --dump-dom https://example.com
-            
+
       - name: Install Python packages
         run: |
           python -m pip install --upgrade pip
