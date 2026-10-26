@@ -6,8 +6,8 @@ date: 2026-10-23
 categories:
   - Basics
 docindex: 3
-bibliography: references.bib
-csl: ieee.csl
+bibliography: ../blb/references.bib
+csl: ../blb/ieee.csl
 notebook-view: false
 format: 
   html: default
