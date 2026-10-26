@@ -38,9 +38,7 @@ jobs:
         run: quarto install chrome-headless-shell --no-prompt
         
       - name: Install SVG converter
-        run: |
-          sudo apt-get update
-          sudo apt-get install --yes librsvg2-bin
+        run: sudo apt-get install --yes --no-install-recommends librsvg2-bin
 
       - name: Install Python packages
         run: |
